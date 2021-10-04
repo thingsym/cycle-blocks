@@ -1,0 +1,151 @@
+{
+  "name": "cycle-blocks",
+  "version": "0.1.0",
+  "description": "A template for WordPress plugin that extends Gutenberg.",
+  "main": "index.js",
+  "author": "Thingsym",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Gutenberg"
+  ],
+  "dependencies": {
+    "@wordpress/api-fetch": "^5.1.1",
+    "@wordpress/block-editor": "^6.1.5",
+    "@wordpress/blocks": "^9.1.4",
+    "@wordpress/components": "^14.1.4",
+    "@wordpress/compose": "^4.1.2",
+    "@wordpress/data": "^5.1.2",
+    "@wordpress/element": "^3.1.1",
+    "@wordpress/i18n": "^4.1.1",
+    "@wordpress/icons": "^4.0.1",
+    "@wordpress/primitives": "^2.1.1",
+    "@wordpress/server-side-render": "^2.1.5",
+    "@wordpress/url": "^3.1.1",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@wordpress/browserslist-config": "^4.0.1",
+    "@wordpress/jest-preset-default": "^7.0.5",
+    "@wordpress/scripts": "^16.1.3",
+    "autoprefixer": "^10.2.6",
+    "cpy-cli": "^3.1.1",
+    "cssnano": "^5.0.6",
+    "eslint": "^7.29.0",
+    "eslint-config-wordpress": "^2.0.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "flexbox-grid-mixins": "^0.3.1",
+    "fs": "0.0.1-security",
+    "jest": "^26.6.3",
+    "jest-puppeteer": "^5.0.4",
+    "js-yaml": "^4.1.0",
+    "node-sass": "^6.0.1",
+    "npm-check-updates": "^11.7.1",
+    "npm-run-all": "^4.1.5",
+    "po2json": "^1.0.0-beta-3",
+    "postcss-cli": "^8.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.19.0"
+  },
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "postcss": {
+    "map": true,
+    "plugins": {
+      "postcss-import": {},
+      "autoprefixer": {
+        "browsers": [
+          "last 2 Chrome versions",
+          "last 2 Firefox versions",
+          "last 2 Safari versions",
+          "last 2 Edge versions",
+          "last 2 Opera versions",
+          "last 2 iOS versions",
+          "last 1 Android version",
+          "last 1 ChromeAndroid version",
+          "ie 11",
+          "> 1%"
+        ]
+      }
+    }
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-scss",
+      "stylelint-config-recommended-scss",
+      "stylelint-config-wordpress"
+    ],
+    "rules": {
+      "no-descending-specificity": null,
+      "no-duplicate-selectors": null,
+      "block-no-empty": null
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly",
+      "jQuery": true,
+      "$": false,
+      "wp": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "no-func-assign": "off",
+      "no-unused-vars": "off",
+      "no-prototype-builtins": "off",
+      "no-sparse-arrays": "off",
+      "no-undef": "off"
+    }
+  },
+  "scripts": {
+    "makepot:php": "php /usr/local/share/wp-i18n/makepot.php wp-plugin ../cycle-blocks ../cycle-blocks/languages/cycle-blocks.pot",
+    "makepot:wpcli": "wp i18n make-pot ./ ./languages/cycle-blocks.pot --exclude=dist,bin,tests,node_modules,vendor",
+    "msgfmt:ja": "msgfmt languages/cycle-blocks-ja.po -o languages/cycle-blocks-ja.mo",
+    "msgfmt": "run-p msgfmt:*",
+    "po2json:ja": "po2json languages/cycle-blocks-ja.po languages/cycle-blocks-ja-cycle-blocks-script.json -f jed",
+    "po2json:wpcli:ja": "wp i18n make-json languages/cycle-blocks-ja.po --no-purge",
+    "po2json": "run-p po2json:*",
+    "sass:blocks:style": "node-sass src/scss/blocks.scss dist/css/blocks.css --output-style expanded && postcss --use autoprefixer --no-map -r dist/css/blocks.css",
+    "sass:blocks:style:minify": "node-sass src/scss/blocks.scss dist/css/blocks.min.css --output-style expanded && postcss --use autoprefixer --use cssnano --no-map -r dist/css/blocks.min.css",
+    "sass:editor:style": "node-sass src/scss/block-editor-style.scss dist/css/block-editor-style.css --output-style expanded && postcss --use autoprefixer --no-map -r dist/css/block-editor-style.css",
+    "sass:editor:style:minify": "node-sass src/scss/block-editor-style.scss dist/css/block-editor-style.min.css --output-style expanded && postcss --use autoprefixer --use cssnano --no-map -r dist/css/block-editor-style.min.css",
+    "webpack": "cross-env BABEL_ENV=default NODE_ENV=production webpack",
+    "deprecated:build:js": "npm-run-all -p webpack",
+    "build:fontawesome": "cpy node_modules/@fortawesome/fontawesome-free/css/all.css ./dist/css --rename=fontawesome.css && cpy node_modules/@fortawesome/fontawesome-free/css/all.min.css ./dist/css --rename=fontawesome.min.css && cpy node_modules/@fortawesome/fontawesome-free/webfonts/* ./dist/webfonts",
+    "build:js": "wp-scripts build src/js/blocks --output-path=dist/js",
+    "build:css": "run-p sass:**",
+    "build:php": "cpy 'src/blocks/**/*.php' 'dist/php/'",
+    "build:i18n": "run-p msgfmt:* po2json:*",
+    "build": "run-p build:*",
+    "lint:js": "wp-scripts lint-js ./dist",
+    "lint:es": "eslint ./dist/js/*.js",
+    "lint:css": "stylelint dist/css/*.css dist/css/**/*.css !static/css/*.min.css !css/**/*.min.css",
+    "lint:scss": "stylelint src/scss/*.scss src/scss/**/*.scss",
+    "lint:pkg-json": "wp-scripts lint-pkg-json ./package.json",
+    "lint:md": "wp-scripts lint-md-docs ./README.md && wp-scripts lint-md-js ./README.md",
+    "lint": "run-p lint:*",
+    "test:jest": "jest --config ./tests/jest/jest.config.js",
+    "test:e2e": "jest --config ./tests/e2e/jest.config.js",
+    "test": "run-p test:jest",
+    "format:js": "wp-scripts format-js ./src/blocks",
+    "watch": "wp-scripts start src/js/blocks --output-path=dist/js",
+    "archive:package": "mkdir -p ./cycle-blocks && cpy '**/*' '!./.DS_Store' '!./bin' '!./vendor' '!./composer.json' '!./composer.lock' '!./node_modules' '!./README.md' '!./package.json' '!./package-lock.json' '!./phpcs.ruleset.xml' '!./phpmd.ruleset.xml' '!./phpstan.neon' '!./phpunit.xml' '!./webpack.config.js' '!./src' '!./tests' '!./cycle-blocks-v*.zip' './cycle-blocks' --parents",
+    "archive:zip": "zip -9 -qmr cycle-blocks-v$npm_package_version.zip ./cycle-blocks",
+    "archive": "run-s build archive:package archive:zip"
+  }
+}
