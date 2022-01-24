@@ -1,0 +1,23 @@
+// Included Modules
+@use 'function/calc-stack';
+
+$default-layout-width: 1024px !default;
+
+$default-font-size: 100% !default;
+$default-line-space: 8px !default;
+$default-line-height: calc-stack.line-height($default-line-space, $default-font-size) !default;
+$default-stack: calc-stack.stack($default-line-height, $default-font-size) * 4 !default;
+
+$default-border-color: #ddd !default;
+
+$default-breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 896px,
+  lg: 1024px,
+  xl: 1280px
+) !default;
+
+// grid
+$flexbox-grid-mixins-box-sizing: null !default;
+$flexbox-grid-mixins-stack: margin-top !default;
