@@ -158,6 +158,7 @@ class Cycle_Blocks {
 
 		new \Cycle_Blocks\Blocks\Page_List();
 		new \Cycle_Blocks\Blocks\Sitemap();
+		new \Cycle_Blocks\Blocks\Profile();
 	}
 
 	/**
