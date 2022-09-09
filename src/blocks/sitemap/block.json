@@ -1,0 +1,31 @@
+{
+  "apiVersion": 2,
+  "name": "cycle-blocks/sitemap",
+  "title": "Sitemap",
+  "category": "cycle-blocks",
+  "description": "Display sitemap.",
+  "keywords": [],
+  "textdomain": "cycle-blocks",
+  "attributes": {
+    "displayPage": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayPost": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayCategory": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayAuthor": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {},
+  "editorScript" : "cycle-blocks-editor-script",
+  "editorStyle": "cycle-blocks-editor-style",
+  "style": "cycle-blocks-style"
+}

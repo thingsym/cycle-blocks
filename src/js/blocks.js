@@ -10,6 +10,10 @@ import {
 import { __, _x } from '@wordpress/i18n';
 
 /**
+ * Internal dependencies
+ */
+import * as cycle_blocks_sitemap from '../blocks/sitemap/index.js';
+/**
  * Function to register an individual block.
  *
  * @param {Object} block The block to be registered.
@@ -54,4 +58,5 @@ const applyTextdomainMetadata = ( metadata, settings ) => {
 [
 	// Common blocks are grouped at the top to prioritize their display
 	// in various contexts — like the inserter and auto-complete components.
+	cycle_blocks_sitemap,
 ].forEach( registerBlock );
