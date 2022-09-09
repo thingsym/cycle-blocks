@@ -155,6 +155,8 @@ class Cycle_Blocks {
 		if ( ! function_exists( 'register_block_type' ) ) {
 			return;
 		}
+
+		new \Cycle_Blocks\Blocks\Page_List();
 		new \Cycle_Blocks\Blocks\Sitemap();
 	}
 
