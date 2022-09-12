@@ -66,4 +66,7 @@ const applyTextdomainMetadata = ( metadata, settings ) => {
 	cycle_blocks_page_list,
 	cycle_blocks_sitemap,
 	cycle_blocks_profile,
+
+	cycle_blocks_fontawesome_icons,
+
 ].forEach( registerBlock );
