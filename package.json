@@ -121,7 +121,7 @@
     }
   },
   "scripts": {
-    "makedata:icons": "node src/helper/icons-yml2json-convert/index.js > src/helper/icons-yml2json-convert/icons-converted-data.js",
+    "makedata:fontawesome": "node src/helper/fontawesome-yml2json-convert/index.js > src/helper/fontawesome-yml2json-convert/fontawesome-converted-data.js",
     "makepot:wpcli": "wp i18n make-pot ./ ./languages/${npm_package_name}.pot --exclude=dist,bin,tests,node_modules,vendor",
     "msgfmt:ja": "msgfmt languages/${npm_package_name}-ja.po -o languages/${npm_package_name}-ja.mo",
     "msgfmt": "run-p msgfmt:*",
