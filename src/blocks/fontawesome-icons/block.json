@@ -1,0 +1,49 @@
+{
+  "apiVersion": 2,
+  "name": "cycle-blocks/fontawesome-icons",
+  "title": "Fontawesome Icons",
+  "category": "cycle-blocks",
+  "description": "Display a Fontawesome Icon.",
+  "keywords": [ "icon" ],
+  "textdomain": "cycle-blocks",
+  "attributes": {
+    "iconLabel": {
+      "type": "string",
+      "default": "face-smile-beam"
+    },
+    "iconClassName": {
+      "type": "string",
+      "default": "fas fa-face-smile-beam"
+    },
+    "iconSize": {
+      "type": "string",
+      "default": "48px"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "textAlign": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center"
+    }
+  },
+  "supports": {
+    "align": true,
+    "html": false,
+    "editorBridgeSpace": true,
+    "editorBridgeSpaceMargin": true,
+    "editorBridgeSpacePadding": true,
+    "editorBridgeBorder": true
+  },
+  "editorScript" : "cycle-blocks-editor-script",
+  "editorStyle": "cycle-blocks-editor-style",
+  "style": "cycle-blocks-style"
+}

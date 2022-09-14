@@ -10,7 +10,7 @@
  * After registering this autoload function with SPL, the following line
  * would cause the function to attempt
  * to load the \Cycle_Blocks\Blocks\Cycle_Blocks_Foo class
- * from /dist/php/class-foo.php:
+ * from /dist/blocks/foo/class-bar.php:
  *     new \Cycle_Blocks\Blocks\Cycle_Blocks_Foo;
  *
  * @param string|mixed
@@ -47,11 +47,11 @@ spl_autoload_register( // @phpstan-ignore-line
 			$relative_class = preg_replace( '/^(.*)$/', 'inc/class-$1', $relative_class );
 		}
 		elseif ( preg_match( '/^blocks/', $relative_class ) ) {
-			// load blocks class from /dist/php.
-			$relative_class = preg_replace( '/^blocks\/(.*?)$/', 'dist/php/class-$1', $relative_class );
+			// load blocks class from /dist/blocks/foo.
+			$relative_class = preg_replace( '/^blocks\/(.*?)$/', 'dist/blocks/$1/class-$1', $relative_class );
 		}
 
-		$path = CYCLE_BLOCKS_PATH . $relative_class . '.php';
+		$path = plugin_dir_path( CYCLE_BLOCKS ) . $relative_class . '.php';
 
 		if ( file_exists( $path ) ) {
 			require_once $path;

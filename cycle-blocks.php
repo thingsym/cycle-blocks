@@ -19,9 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'CYCLE_BLOCKS', __FILE__ );
-define( 'CYCLE_BLOCKS_PATH', plugin_dir_path( CYCLE_BLOCKS ) );
 
-require_once CYCLE_BLOCKS_PATH . 'inc/autoload.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/autoload.php';
 
 if ( class_exists( 'Cycle_Blocks\Cycle_Blocks' ) ) {
 	new \Cycle_Blocks\Cycle_Blocks();

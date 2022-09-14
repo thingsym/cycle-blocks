@@ -1,0 +1,71 @@
+{
+  "apiVersion": 2,
+  "name": "cycle-blocks/page-list",
+  "title": "Page List",
+  "category": "cycle-blocks",
+  "description": "list page.",
+  "keywords": [],
+  "textdomain": "cycle-blocks",
+  "attributes": {
+    "postId": {
+      "type": "string"
+    },
+    "layout": {
+      "type": "string",
+      "enum": [
+        "list",
+        "card",
+        "topics",
+        "article"
+      ],
+      "default": "list"
+    },
+    "sortColumn": {
+      "type": "string",
+      "enum": [
+        "menu_order",
+        "post_title",
+        "post_date",
+        "post_modified",
+        "ID"
+      ],
+      "default": "menu_order"
+    },
+    "sortOrder": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "displayAncestor": {
+      "type": "boolean",
+      "default": false
+    },
+    "includeRootAncestor": {
+      "type": "boolean",
+      "default": false
+    },
+    "columns": {
+      "type": "number",
+      "default": 2
+    },
+    "depth": {
+      "type": "integer",
+      "default": 1
+    },
+    "displayFeaturedImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "featuredImageId": {
+      "type": "number"
+    }
+  },
+  "supports": {
+  },
+  "editorScript" : "cycle-blocks-editor-script",
+  "editorStyle": "cycle-blocks-editor-style",
+  "style": "cycle-blocks-style"
+}

@@ -4,3 +4,5 @@ vendor/
 dist/
 tests/report/
 *.zip
+
+fontawesome-converted-data.js

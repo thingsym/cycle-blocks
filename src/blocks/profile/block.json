@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "cycle-blocks/profile",
+  "title": "Profile",
+  "category": "cycle-blocks",
+  "description": "Display profile.",
+  "keywords": [],
+  "textdomain": "cycle-blocks",
+  "attributes": {
+    "userId": {
+      "type": "number"
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string",
+      "default": "Profile"
+    },
+    "showAvatar": {
+      "type": "boolean",
+      "default": true
+    },
+    "avatarSize": {
+      "type": "number",
+      "default": 48
+    },
+    "showBio": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRecentPosts": {
+      "type": "boolean",
+      "default": false
+    },
+    "authorTitle": {
+      "type": "string",
+      "default": "Author's recent posts"
+    },
+    "postsToShow": {
+      "type": "number",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "displayFeaturedImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "featuredImageId": {
+      "type": "number"
+    },
+    "postLayout": {
+      "type": "string",
+      "default": "list"
+    },
+    "postColumns": {
+      "type": "number",
+      "default": 5
+    },
+    "byline": {
+      "type": "string"
+    }
+  },
+  "usesContext": [ "postType", "postId", "queryId" ],
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "link": true
+    }
+  },
+  "editorScript" : "cycle-blocks-editor-script",
+  "editorStyle": "cycle-blocks-editor-style",
+  "style": "cycle-blocks-style"
+}
