@@ -33,8 +33,11 @@ import { pin, list, grid } from '@wordpress/icons';
 /**
  * Internal dependencies
  */
+import metadata from './block.json';
 import UserControl from '../../helper/user-control/index.js';
 import FeaturedImageUploadControl from '../../helper/featured-image-upload-control/index.js';
+
+const { title: metadataTitle } = metadata;
 
 const MAX_POSTS_COLUMNS = 6;
 
@@ -302,7 +305,10 @@ export default function profileEdit( {
 						<ToolbarGroup controls={ layoutControls } />
 					</BlockControls>
 				) }
-				<Placeholder icon={ pin } label={ __( 'Profile Block', 'cycle-blocks' ) }>
+				<Placeholder
+					icon={ pin }
+					label={ metadataTitle }
+				>
 					{ __( 'Not Found authorId', 'cycle-blocks' ) }
 				</Placeholder>
 			</div>
