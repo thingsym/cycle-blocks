@@ -16,6 +16,6 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	icon: 'universal-access-alt',
+	icon: 'admin-site-alt3',
 	edit,
 };

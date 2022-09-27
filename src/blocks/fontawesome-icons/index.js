@@ -17,7 +17,7 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	icon: 'universal-access-alt',
+	icon: 'superhero-alt',
 	edit,
 	save,
 };

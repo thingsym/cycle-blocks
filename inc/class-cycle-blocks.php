@@ -134,7 +134,6 @@ class Cycle_Blocks {
 				[
 					'slug' => 'cycle-blocks',
 					'title' => __( 'Cycle Blocks', 'cycle-blocks' ),
-					'icon'  => 'wordpress',
 				]
 			]
 		);
