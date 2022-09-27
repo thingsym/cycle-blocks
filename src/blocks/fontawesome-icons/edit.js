@@ -11,6 +11,7 @@ import classnames from 'classnames';
 import { __, _x } from '@wordpress/i18n';
 import {
 	PanelBody,
+	ToggleControl,
 } from '@wordpress/components';
 import {
 	InspectorControls,
@@ -32,6 +33,7 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 	const {
 		iconClassName,
 		iconSize,
+		enableInlineBlock,
 		iconColor,
 		backgroundColor,
 		textAlign,
@@ -65,8 +67,12 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( {
 		className: classnames( {
 			[ `has-text-align-${ textAlign }` ]: textAlign,
+			[ `has-inline-icon` ]: enableInlineBlock,
 		} ),
-		style: { backgroundColor: backgroundColor || null }
+		style: {
+			backgroundColor: backgroundColor || null,
+			padding: enableInlineBlock && iconSize ? iconSize : null,
+		}
 	} );
 
 	return (
@@ -78,6 +84,17 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 						'cycle-blocks'
 					)}
 				>
+
+					<ToggleControl
+						label={ __( 'Enable inline block', 'editor-bridge' ) }
+						value={ enableInlineBlock }
+						checked={ enableInlineBlock }
+						onChange={ () => {
+							setAttributes( {
+								enableInlineBlock: ! enableInlineBlock
+							} );
+						} }
+					/>
 					<IconSelectControl
 						label={ __( 'Icons', 'cycle-blocks' ) }
 						valueType="class"

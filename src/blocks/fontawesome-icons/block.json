@@ -19,6 +19,10 @@
       "type": "string",
       "default": "48px"
     },
+    "enableInlineBlock": {
+      "type": "boolean",
+      "default": false
+    },
     "iconColor": {
       "type": "string"
     },
