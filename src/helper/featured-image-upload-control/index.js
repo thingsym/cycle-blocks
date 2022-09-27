@@ -85,10 +85,10 @@ export default function FeaturedImageUploadControl( { value, setAttributes, setM
 	);
 
 	return (
-		<BaseControl className="block-editor-post-featured-image-control__row">
-			<BaseControl.VisualLabel>
-				{ __( 'Featured image', 'cycle-blocks' ) }
-			</BaseControl.VisualLabel>
+		<BaseControl
+			label={ __( 'Featured image', 'cycle-blocks' ) }
+			className="block-editor-post-featured-image-control__row"
+		>
 			<MediaUploadCheck fallback={ uploadFallback }>
 				<MediaUpload
 					title={ __( 'Featured image', 'cycle-blocks' ) }

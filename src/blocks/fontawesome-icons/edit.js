@@ -11,6 +11,7 @@ import classnames from 'classnames';
 import { __, _x } from '@wordpress/i18n';
 import {
 	PanelBody,
+	BaseControl,
 	ToggleControl,
 } from '@wordpress/components';
 import {
@@ -95,6 +96,15 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 							} );
 						} }
 					/>
+
+					<BaseControl
+						label={ __( 'Icon Size', 'cycle-blocks' ) }
+					>
+						<FontSizePicker
+							value={ iconSize }
+							onChange={ onChangeIconSize }
+						/>
+					</BaseControl>
 					<IconSelectControl
 						label={ __( 'Icons', 'cycle-blocks' ) }
 						valueType="class"
@@ -105,12 +115,6 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 								iconClassName: value,
 							} );
 						} }
-					/>
-				</PanelBody>
-				<PanelBody title={ __( 'Icon Size', 'cycle-blocks' ) }>
-					<FontSizePicker
-						value={ iconSize }
-						onChange={ onChangeIconSize }
 					/>
 				</PanelBody>
 				<PanelColorSettings
