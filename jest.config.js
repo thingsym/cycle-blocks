@@ -1,12 +1,13 @@
-const config = require( '@wordpress/scripts/config/jest-e2e.config' );
+const config = require( '@wordpress/scripts/config/jest-unit.config.js' );
 
 module.exports = {
 	...config,
 	rootDir: './',
-	preset: 'jest-puppeteer',
+	silent: false,
 	testMatch: [
-		'<rootDir>/tests/e2e/*.test.js?(x)',
-		'<rootDir>/src/blocks/**/tests/e2e/*.test.js?(x)',
+		'<rootDir>/tests/jest/*.test.js?(x)',
+		'<rootDir>/src/blocks/**/jest/*.test.js?(x)',
+		'<rootDir>/src/helper/**/jest/*.test.js?(x)',
 	],
 	testPathIgnorePatterns: [
 		'<rootDir>/.git/',

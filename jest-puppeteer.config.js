@@ -7,6 +7,7 @@ module.exports = {
 	testMatch: [
 		'<rootDir>/tests/e2e/*.test.js?(x)',
 		'<rootDir>/src/blocks/**/tests/e2e/*.test.js?(x)',
+		'<rootDir>/src/helper/**/jest/*.test.js?(x)',
 	],
 	testPathIgnorePatterns: [
 		'<rootDir>/.git/',
