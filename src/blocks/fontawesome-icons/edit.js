@@ -80,10 +80,7 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody
-					title={ __(
-						'Icon settings',
-						'cycle-blocks'
-					)}
+					title={ __( 'Icon settings', 'cycle-blocks' ) }
 				>
 
 					<ToggleControl
@@ -107,7 +104,7 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 					</BaseControl>
 					<IconSelectControl
 						label={ __( 'Icons', 'cycle-blocks' ) }
-						valueType="class"
+						valueType='class'
 						value={ iconClassName }
 						options={ IconSettings }
 						onChange={ ( value ) => {

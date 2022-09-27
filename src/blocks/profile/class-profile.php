@@ -40,6 +40,7 @@ class profile {
 	}
 
 	public function render_callback( $attributes, $content, $block ) {
+
 		if ( isset( $attributes['userId'] ) ) {
 			$author_id = $attributes['userId'];
 		}

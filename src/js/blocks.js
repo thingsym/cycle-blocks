@@ -15,7 +15,6 @@ import { __, _x } from '@wordpress/i18n';
 import * as cycle_blocks_page_list from '../blocks/page-list/index.js';
 import * as cycle_blocks_sitemap from '../blocks/sitemap/index.js';
 import * as cycle_blocks_profile from '../blocks/profile/index.js';
-
 import * as cycle_blocks_fontawesome_icons from '../blocks/fontawesome-icons/index.js';
 
 /**
