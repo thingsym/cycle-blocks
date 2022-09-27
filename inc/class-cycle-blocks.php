@@ -15,6 +15,25 @@ namespace Cycle_Blocks;
  * @since 1.0.0
  */
 class Cycle_Blocks {
+
+	/**
+	 * Public variable.
+	 *
+	 * @access public
+	 *
+	 * @var array|null $plugin_data
+	 */
+	public $plugin_data = array();
+
+	/**
+	 * Public variable.
+	 *
+	 * @access public
+	 *
+	 * @var array|null $asset_file
+	 */
+	public $asset_file = array();
+
 	public function __construct() {
 		add_action( 'plugins_loaded', [ $this, 'load_plugin_data' ] );
 		add_action( 'plugins_loaded', [ $this, 'load_asset_file' ] );
@@ -29,11 +48,11 @@ class Cycle_Blocks {
 		}
 
 		add_action( 'init', [ $this, 'load_textdomain' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'set_block_editor_translations' ] );
 
+		add_action( 'init', [ $this, 'register_styles' ] );
 		add_action( 'init', [ $this, 'register_block_editor_scripts' ] );
 		add_action( 'init', [ $this, 'register_block_editor_styles' ] );
-		add_action( 'init', [ $this, 'register_styles' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'set_block_editor_translations' ] );
 
 		add_filter( 'block_categories_all', [ $this, 'add_block_categories' ], 10, 2 );
 
@@ -75,15 +94,15 @@ class Cycle_Blocks {
 	 *
 	 * @access public
 	 *
-	 * @return void
+	 * @return boolean
 	 *
 	 * @since 1.0.0
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain(
+		return load_plugin_textdomain(
 			'cycle-blocks',
 			false,
-			dirname( plugin_basename( CYCLE_BLOCKS ) ) . '/languages'
+			plugin_dir_path( CYCLE_BLOCKS ) . 'languages'
 		);
 	}
 
@@ -92,18 +111,20 @@ class Cycle_Blocks {
 	 *
 	 * @access public
 	 *
-	 * @return void
+	 * @return boolean
 	 *
 	 * @since 1.0.0
 	 */
 	public function set_block_editor_translations() {
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations(
+			return wp_set_script_translations(
 				'cycle-blocks-editor-script',
 				'cycle-blocks',
 				plugin_dir_path( CYCLE_BLOCKS ) . 'languages'
 			);
 		}
+
+		return false;
 	}
 
 	public function add_block_categories( $categories ) {
