@@ -78,12 +78,18 @@ export default function FeaturedImageUploadControl( { value, setAttributes, setM
 		} );
 	};
 
+	const uploadFallback = (
+		<p>
+			{ __( 'Can not upload the image. you need permission to upload media.', 'cycle-blocks' ) }
+		</p>
+	);
+
 	return (
 		<BaseControl className="block-editor-post-featured-image-control__row">
 			<BaseControl.VisualLabel>
 				{ __( 'Featured image', 'cycle-blocks' ) }
 			</BaseControl.VisualLabel>
-			<MediaUploadCheck>
+			<MediaUploadCheck fallback={ uploadFallback }>
 				<MediaUpload
 					title={ __( 'Featured image', 'cycle-blocks' ) }
 					onSelect={ onSelectMedia }
