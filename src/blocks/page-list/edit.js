@@ -23,7 +23,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 /**
  * Internal dependencies
  */
- import FeaturedImageUploadControl from '../../helper/featured-image-upload-control/index.js';
+import FeaturedImageUploadControl from '../../helper/featured-image-upload-control/index.js';
 
 export default function pageListEdit( { attributes, setAttributes } ) {
 	const {
