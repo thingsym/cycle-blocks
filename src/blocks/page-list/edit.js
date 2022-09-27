@@ -10,6 +10,7 @@ import {
 	RangeControl,
 	ToggleControl,
 	Disabled,
+	Placeholder,
 } from '@wordpress/components';
 import { useMemo } from '@wordpress/element';
 import {
@@ -209,6 +210,11 @@ export default function pageListEdit( { attributes, setAttributes } ) {
 					<ServerSideRender
 						block="cycle-blocks/page-list"
 						attributes={ attributes }
+						EmptyResponsePlaceholder={ () => (
+							<Placeholder>
+							{ __( 'Empty', 'cycle-blocks' ) }
+							</Placeholder>
+						) }
 					/>
 				</Disabled>
 			</div>

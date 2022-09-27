@@ -7,6 +7,7 @@ import {
 	Disabled,
 	PanelBody,
 	ToggleControl,
+	Placeholder,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
@@ -71,6 +72,11 @@ export default function sitemapEdit( { attributes, setAttributes } ) {
 					<ServerSideRender
 						block="cycle-blocks/sitemap"
 						attributes={ attributes }
+						EmptyResponsePlaceholder={ () => (
+							<Placeholder>
+							{ __( 'Empty', 'cycle-blocks' ) }
+							</Placeholder>
+						) }
 					/>
 				</Disabled>
 			</div>
