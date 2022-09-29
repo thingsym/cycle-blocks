@@ -1,0 +1,331 @@
+# Copyright (C) 2022 thingsym
+# This file is distributed under the GPL2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cycle Blocks 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cycle-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-09-27T11:54:33+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: cycle-blocks\n"
+
+#. Plugin Name of the plugin
+#: inc/class-cycle-blocks.php:136
+msgid "Cycle Blocks"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/thingsym/cycle-blocks"
+msgstr ""
+
+#. Description of the plugin
+msgid "Extented blocks collection."
+msgstr ""
+
+#. Author of the plugin
+msgid "thingsym"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.thingslabo.com/"
+msgstr ""
+
+#: inc/class-cycle-blocks.php:202
+msgid "Become a sponsor"
+msgstr ""
+
+#: src/blocks/profile/class-profile.php:106
+#: src/blocks/profile/edit.js:448
+msgid "(no title)"
+msgstr ""
+
+#: src/blocks/sitemap/class-sitemap.php:56
+msgid "Page"
+msgstr ""
+
+#: src/blocks/sitemap/class-sitemap.php:82
+msgid "Blog"
+msgstr ""
+
+#: src/blocks/sitemap/class-sitemap.php:95
+msgid "Category"
+msgstr ""
+
+#: src/blocks/sitemap/class-sitemap.php:108
+msgid "Author"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:83
+msgid "Icon settings"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:87
+msgid "Enable inline block"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:98
+msgid "Icon Size"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:106
+msgid "Icons"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:118
+msgid "Color Settings"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:124
+msgid "Icon Color"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/edit.js:129
+msgid "Background Color"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:44
+msgid "List"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:48
+msgid "Card"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:52
+msgid "Topics"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:56
+msgid "Article"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:67
+msgid "menu_order"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:71
+msgid "post_title"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:75
+msgid "post_date"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:79
+msgid "post_modified"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:83
+msgid "ID"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:94
+msgid "ASC"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:98
+msgid "DESC"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:108
+msgid "Settings"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:110
+msgid "Post ID"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:119
+msgid "Layout"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:129
+msgid "Sort Column"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:139
+msgid "Sort Order"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:150
+msgid "Display Ancestor"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:161
+msgid "Depth"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:174
+#: src/blocks/profile/edit.js:263
+msgid "Columns"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:186
+#: src/blocks/profile/edit.js:282
+msgid "Display featured image"
+msgstr ""
+
+#: src/blocks/page-list/edit.js:215
+#: src/blocks/sitemap/edit.js:77
+msgid "Empty"
+msgstr ""
+
+#: src/blocks/profile/edit.js:156
+msgid "List view"
+msgstr ""
+
+#: src/blocks/profile/edit.js:162
+msgid "Grid view"
+msgstr ""
+
+#: src/blocks/profile/edit.js:198
+msgid "Profile Settings"
+msgstr ""
+
+#: src/blocks/profile/edit.js:209
+msgid "Show title"
+msgstr ""
+
+#: src/blocks/profile/edit.js:216
+msgid "Show avatar"
+msgstr ""
+
+#: src/blocks/profile/edit.js:224
+msgid "Avatar size"
+msgstr ""
+
+#: src/blocks/profile/edit.js:235
+msgid "Show bio"
+msgstr ""
+
+#: src/blocks/profile/edit.js:242
+msgid "Show recent posts"
+msgstr ""
+
+#: src/blocks/profile/edit.js:251
+msgid "Number of Posts"
+msgstr ""
+
+#: src/blocks/profile/edit.js:312
+msgid "Not Found authorId"
+msgstr ""
+
+#: src/blocks/profile/edit.js:334
+msgid "Title"
+msgstr ""
+
+#: src/blocks/profile/edit.js:335
+#: src/blocks/profile/edit.js:390
+msgid "Write title…"
+msgstr ""
+
+#: src/blocks/profile/edit.js:362
+msgid "Post author byline text"
+msgstr ""
+
+#: src/blocks/profile/edit.js:363
+msgid "Write byline…"
+msgstr ""
+
+#: src/blocks/profile/edit.js:373
+msgid "Post Author"
+msgstr ""
+
+#: src/blocks/profile/edit.js:389
+msgid "Author title"
+msgstr ""
+
+#: src/blocks/sitemap/edit.js:26
+msgid "Sitemap settings"
+msgstr ""
+
+#: src/blocks/sitemap/edit.js:28
+msgid "Display Page"
+msgstr ""
+
+#: src/blocks/sitemap/edit.js:37
+msgid "Display Post"
+msgstr ""
+
+#: src/blocks/sitemap/edit.js:46
+msgid "Display Category"
+msgstr ""
+
+#: src/blocks/sitemap/edit.js:55
+msgid "Display Author"
+msgstr ""
+
+#: src/helper/featured-image-upload-control/index.js:83
+msgid "Can not upload the image. you need permission to upload media."
+msgstr ""
+
+#: src/helper/featured-image-upload-control/index.js:89
+#: src/helper/featured-image-upload-control/index.js:94
+msgid "Featured image"
+msgstr ""
+
+#: src/helper/featured-image-upload-control/index.js:122
+msgid "Set featured image"
+msgstr ""
+
+#: src/helper/featured-image-upload-control/index.js:136
+msgid "Remove image"
+msgstr ""
+
+#: src/helper/user-control/index.js:37
+msgid "User"
+msgstr ""
+
+#: src/helper/user-control/index.js:38
+msgid "Select the user to display, if it is blank it will use the post/page author."
+msgstr ""
+
+#: src/blocks/fontawesome-icons/block.json
+msgctxt "block title"
+msgid "Fontawesome Icons"
+msgstr ""
+
+#: src/blocks/fontawesome-icons/block.json
+msgctxt "block description"
+msgid "Display a Fontawesome Icon."
+msgstr ""
+
+#: src/blocks/fontawesome-icons/block.json
+msgctxt "block keyword"
+msgid "icon"
+msgstr ""
+
+#: src/blocks/page-list/block.json
+msgctxt "block title"
+msgid "Page List"
+msgstr ""
+
+#: src/blocks/page-list/block.json
+msgctxt "block description"
+msgid "list page."
+msgstr ""
+
+#: src/blocks/profile/block.json
+msgctxt "block title"
+msgid "Profile"
+msgstr ""
+
+#: src/blocks/profile/block.json
+msgctxt "block description"
+msgid "Display profile."
+msgstr ""
+
+#: src/blocks/sitemap/block.json
+msgctxt "block title"
+msgid "Sitemap"
+msgstr ""
+
+#: src/blocks/sitemap/block.json
+msgctxt "block description"
+msgid "Display sitemap."
+msgstr ""
