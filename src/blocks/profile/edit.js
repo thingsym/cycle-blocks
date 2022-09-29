@@ -96,7 +96,7 @@ export default function profileEdit( {
 				'post',
 				{
 					author: authorId,
-					order: 'asc',
+					order: 'desc',
 					orderby: 'date',
 					per_page: postsToShow,
 				}

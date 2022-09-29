@@ -72,7 +72,7 @@ class profile {
 				'post_type'        => 'post',
 				'posts_per_page'   => 5,
 				'post_status'      => 'publish',
-				'order'            => 'asc',
+				'order'            => 'desc',
 				'orderby'          => 'date',
 				'suppress_filters' => false,
 			];
