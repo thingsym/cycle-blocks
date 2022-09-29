@@ -84,7 +84,7 @@ export default function fontawesomeIconsEdit( { attributes, setAttributes } ) {
 				>
 
 					<ToggleControl
-						label={ __( 'Enable inline block', 'editor-bridge' ) }
+						label={ __( 'Enable inline block', 'cycle-blocks' ) }
 						value={ enableInlineBlock }
 						checked={ enableInlineBlock }
 						onChange={ () => {
