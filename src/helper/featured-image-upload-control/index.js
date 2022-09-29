@@ -7,6 +7,7 @@ import {
 	BaseControl,
 	Button,
 	ResponsiveWrapper,
+	Spinner,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import {
@@ -106,21 +107,22 @@ export default function FeaturedImageUploadControl( { value, setAttributes, setM
 								}
 								onClick={ open }
 							>
-							{ !! featuredImageId && mediaSizes && (
-								<ResponsiveWrapper
-									naturalWidth={ mediaSizes[ 'thumbnail' ].width }
-									naturalHeight={ mediaSizes[ 'thumbnail' ].height }
-									isInline
-								>
-									<img
-										src={ mediaSizes[ 'thumbnail' ].source_url }
-										alt=""
-									/>
-								</ResponsiveWrapper>
-							) }
-							{ ! featuredImageId &&
-								( __( 'Set featured image', 'cycle-blocks' ) )
-							}
+								{ ! featuredImageId &&
+									( __( 'Set featured image', 'cycle-blocks' ) )
+								}
+								{ !! featuredImageId && ! mediaSizes && <Spinner /> }
+								{ !! featuredImageId && mediaSizes && (
+									<ResponsiveWrapper
+										naturalWidth={ mediaSizes[ 'thumbnail' ].width }
+										naturalHeight={ mediaSizes[ 'thumbnail' ].height }
+										isInline
+									>
+										<img
+											src={ mediaSizes[ 'thumbnail' ].source_url }
+											alt=""
+										/>
+									</ResponsiveWrapper>
+								) }
 							</Button>
 						</div>
 					) }
