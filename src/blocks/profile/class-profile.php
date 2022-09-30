@@ -189,7 +189,7 @@ class profile {
 
 		$classes = array_merge(
 			isset( $attributes['className'] ) ? array( $attributes['className'] ) : array(),
-			isset( $attributes['itemsJustification'] ) ? array( 'items-justified-' . $attributes['itemsJustification'] ) : array(),
+			isset( $attributes['itemsJustification'] ) ? array( 'items-justified-' . $attributes['itemsJustification'] ) : array()
 		);
 
 		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
