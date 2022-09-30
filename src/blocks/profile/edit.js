@@ -309,7 +309,7 @@ export default function profileEdit( {
 					icon={ pin }
 					label={ metadataTitle }
 				>
-					{ __( 'Not Found authorId', 'cycle-blocks' ) }
+					{ __( 'Not Found authorId. If the User is blank or not a post/page, it cannot be viewed in the editor.', 'cycle-blocks' ) }
 				</Placeholder>
 			</div>
 		);

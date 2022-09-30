@@ -212,7 +212,7 @@ export default function pageListEdit( { attributes, setAttributes } ) {
 						attributes={ attributes }
 						EmptyResponsePlaceholder={ () => (
 							<Placeholder>
-							{ __( 'Empty', 'cycle-blocks' ) }
+							{ __( 'Not Found pages. If the Post ID is blank or not a post/page, it cannot be viewed in the editor.', 'cycle-blocks' ) }
 							</Placeholder>
 						) }
 					/>
