@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cycle Blocks 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cycle-blocks\n"
-"POT-Creation-Date: 2022-09-27T11:54:33+00:00\n"
+"POT-Creation-Date: 2022-09-29T11:00:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,8 +25,11 @@ msgid "https://github.com/thingsym/cycle-blocks"
 msgstr "https://github.com/thingsym/cycle-blocks"
 
 #. Description of the plugin
-msgid "Extented blocks collection."
-msgstr ""
+msgid ""
+"Cycle Blocks plugin is a collection of block for block themes (Full Site "
+"Editing)."
+msgstr "Cycle Blocks plugin is a collection of block for block themes (Full Site "
+"Editing)."
 
 #. Author of the plugin
 msgid "thingsym"
@@ -168,9 +171,11 @@ msgstr "カラム"
 msgid "Display featured image"
 msgstr "画像の表示"
 
-#: src/blocks/page-list/edit.js:215 src/blocks/sitemap/edit.js:77
-msgid "Empty"
-msgstr ""
+#: src/blocks/page-list/edit.js:215
+msgid ""
+"Not Found pages. If the Post ID is blank or not a post/page, it cannot be "
+"viewed in the editor."
+msgstr "ページがありません。Post ID がブランク、または投稿/ページでない場合、エディターに表示できません。"
 
 #: src/blocks/profile/edit.js:156
 msgid "List view"
@@ -209,8 +214,10 @@ msgid "Number of Posts"
 msgstr "投稿数"
 
 #: src/blocks/profile/edit.js:312
-msgid "Not Found authorId"
-msgstr "authorId がありません"
+msgid ""
+"Not Found authorId. If the User is blank or not a post/page, it cannot be "
+"viewed in the editor."
+msgstr "authorId がありません。ユーザがブランク、または投稿/ページがない場合、エディターに表示できません。"
 
 #: src/blocks/profile/edit.js:334
 msgid "Title"
@@ -222,11 +229,11 @@ msgstr "タイトルを書く"
 
 #: src/blocks/profile/edit.js:362
 msgid "Post author byline text"
-msgstr ""
+msgstr "投稿者の署名欄"
 
 #: src/blocks/profile/edit.js:363
 msgid "Write byline…"
-msgstr ""
+msgstr "署名欄を書く"
 
 #: src/blocks/profile/edit.js:373
 msgid "Post Author"
@@ -256,20 +263,24 @@ msgstr "カテゴリの表示"
 msgid "Display Author"
 msgstr "投稿者の表示"
 
-#: src/helper/featured-image-upload-control/index.js:83
-msgid "Can not upload the image. you need permission to upload media."
-msgstr ""
+#: src/blocks/sitemap/edit.js:77
+msgid "Empty"
+msgstr "空です。"
 
-#: src/helper/featured-image-upload-control/index.js:89
-#: src/helper/featured-image-upload-control/index.js:94
+#: src/helper/featured-image-upload-control/index.js:84
+msgid "Can not upload the image. you need permission to upload media."
+msgstr "画像をアップロードできません。メディアをアップロードする権限がありません。"
+
+#: src/helper/featured-image-upload-control/index.js:90
+#: src/helper/featured-image-upload-control/index.js:95
 msgid "Featured image"
 msgstr "アイキャッチ画像"
 
-#: src/helper/featured-image-upload-control/index.js:122
+#: src/helper/featured-image-upload-control/index.js:111
 msgid "Set featured image"
 msgstr "アイキャッチ画像の設定"
 
-#: src/helper/featured-image-upload-control/index.js:136
+#: src/helper/featured-image-upload-control/index.js:138
 msgid "Remove image"
 msgstr "アイキャッチ画像を削除"
 
@@ -326,3 +337,6 @@ msgstr "サイトマップ"
 msgctxt "block description"
 msgid "Display sitemap."
 msgstr "サイトマップを表示"
+
+#~ msgid "Not Found authorId"
+#~ msgstr "authorId がありません"
