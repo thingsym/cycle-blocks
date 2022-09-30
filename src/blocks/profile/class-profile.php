@@ -46,13 +46,13 @@ class profile {
 		}
 		else {
 			if ( ! isset( $block->context['postId'] ) ) {
-				return '';
+				return;
 			}
 
 			$author_id = get_post_field( 'post_author', $block->context['postId'] );
 
 			if ( empty( $author_id ) ) {
-				return '';
+				return;
 			}
 		}
 
