@@ -137,7 +137,7 @@
     "build:js": "wp-scripts build src/js/blocks --output-path=dist/js",
     "build:css": "run-s sass:**",
     "build:i18n": "run-s msgfmt:* po2json:*",
-    "build:php": "cpy '**/*.php' '../../dist/blocks/' --cwd='src/blocks/' --parents",
+    "build:php": "cpy '**/*.php' '!**/tests/phpunit/*.php' '../../dist/blocks/' --cwd='src/blocks/' --parents",
     "build:block-json": "cpy '**/block.json' '../../dist/blocks/' --cwd='src/blocks/' --parents",
     "build": "run-p build:*",
     "lint:js": "wp-scripts lint-js ./dist/js ./dist/blocks",
