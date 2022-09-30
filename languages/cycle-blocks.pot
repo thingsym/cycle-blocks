@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-09-27T11:54:33+00:00\n"
+"POT-Creation-Date: 2022-09-29T11:00:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: cycle-blocks\n"
@@ -24,7 +24,7 @@ msgid "https://github.com/thingsym/cycle-blocks"
 msgstr ""
 
 #. Description of the plugin
-msgid "Extented blocks collection."
+msgid "Cycle Blocks plugin is a collection of block for block themes (Full Site Editing)."
 msgstr ""
 
 #. Author of the plugin
@@ -171,8 +171,7 @@ msgid "Display featured image"
 msgstr ""
 
 #: src/blocks/page-list/edit.js:215
-#: src/blocks/sitemap/edit.js:77
-msgid "Empty"
+msgid "Not Found pages. If the Post ID is blank or not a post/page, it cannot be viewed in the editor."
 msgstr ""
 
 #: src/blocks/profile/edit.js:156
@@ -212,7 +211,7 @@ msgid "Number of Posts"
 msgstr ""
 
 #: src/blocks/profile/edit.js:312
-msgid "Not Found authorId"
+msgid "Not Found authorId. If the User is blank or not a post/page, it cannot be viewed in the editor."
 msgstr ""
 
 #: src/blocks/profile/edit.js:334
@@ -260,20 +259,24 @@ msgstr ""
 msgid "Display Author"
 msgstr ""
 
-#: src/helper/featured-image-upload-control/index.js:83
+#: src/blocks/sitemap/edit.js:77
+msgid "Empty"
+msgstr ""
+
+#: src/helper/featured-image-upload-control/index.js:84
 msgid "Can not upload the image. you need permission to upload media."
 msgstr ""
 
-#: src/helper/featured-image-upload-control/index.js:89
-#: src/helper/featured-image-upload-control/index.js:94
+#: src/helper/featured-image-upload-control/index.js:90
+#: src/helper/featured-image-upload-control/index.js:95
 msgid "Featured image"
 msgstr ""
 
-#: src/helper/featured-image-upload-control/index.js:122
+#: src/helper/featured-image-upload-control/index.js:111
 msgid "Set featured image"
 msgstr ""
 
-#: src/helper/featured-image-upload-control/index.js:136
+#: src/helper/featured-image-upload-control/index.js:138
 msgid "Remove image"
 msgstr ""
 
