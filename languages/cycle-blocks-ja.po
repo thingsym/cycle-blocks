@@ -1,5 +1,5 @@
 # Copyright (C) 2021 thingsym
-# This file is distributed under the GPL2 or later.
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Cycle Blocks 1.0.0\n"
