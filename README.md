@@ -36,10 +36,6 @@ Cycle Blocks is hosted on the WordPress Plugin Directory.
 
 [https://wordpress.org/plugins/cycle-blocks/](https://wordpress.org/plugins/cycle-blocks/)
 
-## Test Matrix
-
-For operation compatibility between PHP version and WordPress version, see below [GitHub Actions](https://github.com/thingsym/cycle-blocks/actions).
-
 ## Build development environment
 
 ```console
@@ -84,15 +80,41 @@ npm run test:jest
 
 ## Contribution
 
+Small patches and bug reports can be submitted a issue tracker in Github.
+
+Translating a plugin takes a lot of time, effort, and patience. I really appreciate the hard work from these contributors.
+
+If you have created or updated your own language pack, you can send gettext PO and MO files to author. I can bundle it into plugin.
+
+* VCS - Github: [https://github.com/thingsym/cycle-blocks/](https://github.com/thingsym/cycle-blocks/)
+* [Translate Cycle Blocks into your language.](https://translate.wordpress.org/projects/wp-plugins/cycle-blocks)
+
+You can also contribute by answering issues on the forums.
+
+* Forum: [https://wordpress.org/support/plugin/cycle-blocks/](https://wordpress.org/support/plugin/cycle-blocks/)
+* Issues: [https://github.com/thingsym/cycle-blocks/issues](https://github.com/thingsym/cycle-blocks/issues)
+
 ### Patches and Bug Fixes
 
-Small patches and bug reports can be submitted a issue tracker in GitHub. Forking on GitHub is another good way. You can send a pull request.
+Forking on Github is another good way. You can send a pull request.
 
 1. Fork [Cycle Blocks](https://github.com/thingsym/cycle-blocks) from GitHub repository
 2. Create a feature branch: git checkout -b my-new-feature
 3. Commit your changes: git commit -am 'Add some feature'
 4. Push to the branch: git push origin my-new-feature
 5. Create new Pull Request
+
+### Contribute guidlines
+
+If you would like to contribute, here are some notes and guidlines.
+
+* All development happens on the **main** branch, so it is always the most up-to-date
+* If you are going to be submitting a pull request, please submit your pull request to the **main** branch
+* See about [forking](https://help.github.com/articles/fork-a-repo/) and [pull requests](https://help.github.com/articles/using-pull-requests/)
+
+## Test Matrix
+
+For operation compatibility between PHP version and WordPress version, see below [GitHub Actions](https://github.com/thingsym/cycle-blocks/actions).
 
 ## Changelog
 
