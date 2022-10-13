@@ -368,12 +368,12 @@ export default function profileEdit( {
 						/>
 					) }
 
-					{ authorDetails && (
+					{ authorDetails?.name && (
 						<p className="wp-block-cycle-blocks-profile__name">
 							{ authorDetails?.name || __( 'Post Author', 'cycle-blocks' ) }
 						</p>
 					) }
-					{ authorDetails && showBio && (
+					{ authorDetails?.description && showBio && (
 						<p className="wp-block-cycle-blocks-profile__bio">
 							{ authorDetails?.description }
 						</p>
