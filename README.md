@@ -78,6 +78,13 @@ npm intall
 npm run test:jest
 ```
 
+## Support
+
+If you have any trouble, you can use the forums or report bugs.
+
+* Forum: [https://wordpress.org/support/plugin/cycle-blocks/](https://wordpress.org/support/plugin/cycle-blocks/)
+* Issues: [https://github.com/thingsym/cycle-blocks/issues](https://github.com/thingsym/cycle-blocks/issues)
+
 ## Contribution
 
 Small patches and bug reports can be submitted a issue tracker in Github.
