@@ -7,7 +7,7 @@
 
 class Test_Class_Profile extends WP_UnitTestCase {
 
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 		$this->profile = new \Cycle_Blocks\Blocks\Profile();
 	}
