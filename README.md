@@ -125,6 +125,19 @@ For operation compatibility between PHP version and WordPress version, see below
 
 ## Changelog
 
+### [1.1.0] - 2022.10.13
+
+* fix phpcs.ruleset.xml
+* update composer dependency
+* fix phpcs composer scripts
+* add PHP CodeSniffer to ci
+* imporve code with phpcs
+* fix conditional expression
+* fix scss
+* add who prop to UserControl
+* add support section and enhance contribution section to README
+* fix license
+
 ### [1.0.0] - 2022.09.30
 
 * initial release

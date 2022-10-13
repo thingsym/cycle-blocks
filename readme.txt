@@ -3,7 +3,7 @@
 Contributors: thingsym
 Link: https://github.com/thingsym/cycle-blocks
 Donate link: https://github.com/sponsors/thingsym
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Tested up to: 6.0.0
 Requires at least: 6.0.0
 Requires PHP: 7.2
@@ -92,6 +92,18 @@ For operation compatibility between PHP version and WordPress version, see below
 4. Have fun!
 
 == Changelog ==
+
+= 1.1.0 - 2022.10.13 =
+* fix phpcs.ruleset.xml
+* update composer dependency
+* fix phpcs composer scripts
+* add PHP CodeSniffer to ci
+* imporve code with phpcs
+* fix conditional expression
+* fix scss
+* add who prop to UserControl
+* add support section and enhance contribution section to README
+* fix license
 
 = 1.0.0 - 2022.09.30 =
 * initial commit
