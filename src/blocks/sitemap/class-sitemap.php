@@ -40,16 +40,16 @@ class Sitemap {
 	}
 
 	public function render_callback( $attributes ) {
-		$displayPage     = ! empty( $attributes['displayPage'] );
-		$displayPost     = ! empty( $attributes['displayPost'] );
-		$displayCategory = ! empty( $attributes['displayCategory'] );
-		$displayAuthor   = ! empty( $attributes['displayAuthor'] );
+		$display_page     = ! empty( $attributes['displayPage'] );
+		$display_post     = ! empty( $attributes['displayPost'] );
+		$display_category = ! empty( $attributes['displayCategory'] );
+		$display_author   = ! empty( $attributes['displayAuthor'] );
 
 		$sitemap_markup = '';
-		$class          = "cycle-blocks-sitemap cycle-blocks-sitemap-";
+		$class          = 'cycle-blocks-sitemap cycle-blocks-sitemap-';
 		$wrapper_markup = '<ul class="%1$s">%2$s</ul>';
 
-		if ( $displayPage ) {
+		if ( $display_page ) {
 			$pages = wp_list_pages( 'title_li=&echo=0' );
 
 			if ( $pages ) {
@@ -62,18 +62,28 @@ class Sitemap {
 			}
 		}
 
-		if ( $displayPost ) {
-			$posts = get_posts( 'posts_per_page=-1' );
-			global $post;
+		if ( $display_post ) {
+			$args = [
+				'post_type'           => 'post',
+				'posts_per_page'      => -1,
+				'post_status'         => 'publish',
+				'order'               => 'DESC',
+				'orderby'             => 'date',
+				'suppress_filters'    => false,
+				'ignore_sticky_posts' => true,
+				'no_found_rows'       => true,
+			];
+			$posts = new \WP_Query( $args );
 
-			if ( $posts ) {
+			if ( $posts->have_posts() ) {
 				$html = '';
-				foreach ( $posts as $post ) {
-					setup_postdata( $post );
+
+				while ( $posts->have_posts() ) {
+					$posts->the_post();
 
 					$html .= '<li>';
-					$html .= sprintf( __( '<time class="post-date" datetime="%1$s">%2$s</time> ' ), esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date() ) );
-					$html .= '<a href="' . get_permalink() . '">' . $post->post_title . '</a>';
+					$html .= sprintf( __( '<time class="post-date" datetime="%1$s">%2$s</time> ', 'cycle-blocks' ), esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date() ) );
+					$html .= '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
 					$html .= '</li>';
 				}
 
@@ -88,7 +98,7 @@ class Sitemap {
 			}
 		}
 
-		if ( $displayCategory ) {
+		if ( $display_category ) {
 			$categories = wp_list_categories( 'title_li=&echo=0&show_count=1' );
 
 			if ( $categories ) {
@@ -101,7 +111,7 @@ class Sitemap {
 			}
 		}
 
-		if ( $displayAuthor ) {
+		if ( $display_author ) {
 			$authors = wp_list_authors( 'title_li=&echo=0&exclude_admin=0&optioncount=1' );
 
 			if ( $authors ) {

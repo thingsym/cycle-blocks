@@ -40,22 +40,6 @@ class Page_List {
 	}
 
 	public function render_callback( $attributes ) {
-		// if ( is_post() ) {
-		// 	return;
-		// }
-
-		// if ( is_admin() ) {
-		// 	global $post_type;
-		// 	if ( $post_type !== 'page' && empty( $attributes['postId'] ) ) {
-		// 		return;
-		// 	}
-		// }
-		// else {
-		// 	if ( ! is_page() && empty( $attributes['postId'] ) ) {
-		// 		return;
-		// 	}
-		// }
-
 		$parsed_args = $this->parse_args( $attributes );
 		$pages       = get_pages( $parsed_args );
 
@@ -120,14 +104,13 @@ class Page_List {
 			$post_type = get_post_type( $attributes['postId'] );
 		}
 		else {
-			global $post;
-			$parent    = $post->ID;
-			$post_type = get_post_type( $post->ID );
+			$parent    = get_the_ID();
+			$post_type = get_post_type( get_the_ID() );
 		}
 
 		$args['parent']      = $parent;
 		$args['child_of']    = $parent;
-		$args['sort_order']  = $attributes['sortOrder']  ? $attributes['sortOrder'] : 'ASC';
+		$args['sort_order']  = $attributes['sortOrder'] ? $attributes['sortOrder'] : 'ASC';
 		$args['sort_column'] = $attributes['sortColumn'] ? $attributes['sortColumn'] : 'menu_order';
 		$args['post_type']   = $post_type;
 
@@ -151,10 +134,8 @@ class Page_List {
 	}
 
 	public function get_list_layout( $pages, $parsed_args, $attributes ) {
-		global $post;
-
 		if ( $attributes['displayAncestor'] ) {
-			if ( $attributes['postId'] ) {
+			if ( ! empty( $attributes['postId'] ) ) {
 				$parent_post = get_post( $attributes['postId'] );
 				// the post_parent of 0 is root
 				if ( ! $parent_post->post_parent ) {
@@ -162,8 +143,8 @@ class Page_List {
 				}
 			}
 			else {
-				if ( ! $post->post_parent ) {
-					$pages[] = $post;
+				if ( empty( $GLOBALS['post']->post_parent ) ) {
+					$pages[] = $GLOBALS['post'];
 				}
 			}
 		}
@@ -182,26 +163,25 @@ class Page_List {
 
 		$post_content = walk_page_tree( $pages, $parsed_args['depth'], $current_page, $parsed_args );
 
-		wp_reset_postdata();
-
 		$post_items_markup = '<ul>' . $post_content . '</ul>';
 
 		return $post_items_markup;
 	}
 
 	public function get_card_layout( $pages, $parsed_args, $attributes ) {
-		global $post;
-
 		$post_items_markup = '';
 
 		foreach ( $pages as $post ) {
-			setup_postdata( $post );
+			$post_id        = $post->ID;
+			$post_title     = get_the_title( $post );
+			$post_permalink = get_permalink( $post );
+			$post_excerpt   = get_the_excerpt( $post );
 
 			$featured_image_markup = '';
 
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
-				$image_style = '';
+				$image_style    = '';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
@@ -230,8 +210,8 @@ class Page_List {
 				if ( $featured_image ) {
 					$featured_image = sprintf(
 						'<a href="%1$s" aria-label="%2$s">%3$s</a>',
-						esc_url( get_permalink() ),
-						esc_attr( get_the_title() ),
+						esc_url( $post_permalink ),
+						esc_attr( $post_title ),
 						$featured_image
 					);
 
@@ -245,35 +225,34 @@ class Page_List {
 				}
 			}
 
-			$post_items_markup .= '<article id="post-' . get_the_ID() . '" class="' . esc_attr( implode( ' ', get_post_class() ) ) . '">';
+			$post_items_markup .= '<article id="post-' . $post_id . '" class="' . esc_attr( implode( ' ', get_post_class( '', $post_id ) ) ) . '">';
 			$post_items_markup .= $featured_image_markup;
 			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__article-inner">';
-			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
 			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__entry-content">';
-			$post_items_markup .= get_the_excerpt();
+			$post_items_markup .= $post_excerpt;
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</article>';
 		}
 
-		wp_reset_postdata();
-
 		return $post_items_markup;
 	}
 
 	public function get_topics_layout( $pages, $parsed_args, $attributes ) {
-		global $post;
-
 		$post_items_markup = '';
 
 		foreach ( $pages as $post ) {
-			setup_postdata( $post );
+			$post_id        = $post->ID;
+			$post_title     = get_the_title( $post );
+			$post_permalink = get_permalink( $post );
+			$post_excerpt   = get_the_excerpt( $post );
 
 			$featured_image_markup = '';
 
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
-				$image_style = '';
+				$image_style    = '';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
@@ -302,8 +281,8 @@ class Page_List {
 				if ( $featured_image ) {
 					$featured_image = sprintf(
 						'<a href="%1$s" aria-label="%2$s">%3$s</a>',
-						esc_url( get_permalink() ),
-						esc_attr( get_the_title() ),
+						esc_url( $post_permalink ),
+						esc_attr( $post_title ),
 						$featured_image
 					);
 
@@ -317,29 +296,28 @@ class Page_List {
 				}
 			}
 
-			$post_items_markup .= '<article id="post-' . get_the_ID() . '" class="' . esc_attr( implode( ' ', get_post_class() ) ) . '">';
+			$post_items_markup .= '<article id="post-' . $post_id . '" class="' . esc_attr( implode( ' ', get_post_class( '', $post_id ) ) ) . '">';
 			$post_items_markup .= $featured_image_markup;
 			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__article-inner">';
-			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
 			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__entry-content">';
-			$post_items_markup .= get_the_excerpt();
+			$post_items_markup .= $post_excerpt;
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</article>';
 		}
 
-		wp_reset_postdata();
-
 		return $post_items_markup;
 	}
 
 	public function get_article_layout( $pages, $parsed_args, $attributes ) {
-		global $post;
-
 		$post_items_markup = '';
 
 		foreach ( $pages as $post ) {
-			setup_postdata( $post );
+			$post_id        = $post->ID;
+			$post_title     = get_the_title( $post );
+			$post_permalink = get_permalink( $post );
+			$post_excerpt   = get_the_excerpt( $post );
 
 			$featured_image_markup = '';
 
@@ -374,8 +352,8 @@ class Page_List {
 				if ( $featured_image ) {
 					$featured_image = sprintf(
 						'<a href="%1$s" aria-label="%2$s">%3$s</a>',
-						esc_url( get_permalink() ),
-						esc_attr( get_the_title() ),
+						esc_url( $post_permalink ),
+						esc_attr( $post_title ),
 						$featured_image
 					);
 
@@ -389,16 +367,14 @@ class Page_List {
 				}
 			}
 
-			$post_items_markup .= '<article id="post-' . get_the_ID() . '" class="' . esc_attr( implode( ' ', get_post_class() ) ) . '">';
-			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+			$post_items_markup .= '<article id="post-' . $post_id . '" class="' . esc_attr( implode( ' ', get_post_class( '', $post_id ) ) ) . '">';
+			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
 			$post_items_markup .= $featured_image_markup;
 			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__entry-content">';
-			$post_items_markup .= get_the_excerpt();
+			$post_items_markup .= $post_excerpt;
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</article>';
 		}
-
-		wp_reset_postdata();
 
 		return $post_items_markup;
 	}

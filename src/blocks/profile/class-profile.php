@@ -14,7 +14,7 @@ namespace Cycle_Blocks\Blocks;
  *
  * @since 1.0.0
  */
-class profile {
+class Profile {
 	/**
 	 * Ensure that the ID attribute only appears in the markup once
 	 *
@@ -66,15 +66,15 @@ class profile {
 		$post_content = '';
 
 		if ( isset( $attributes['showRecentPosts'] ) ) {
-			global $post;
-
 			$args = [
-				'post_type'        => 'post',
-				'posts_per_page'   => 5,
-				'post_status'      => 'publish',
-				'order'            => 'desc',
-				'orderby'          => 'date',
-				'suppress_filters' => false,
+				'post_type'           => 'post',
+				'posts_per_page'      => $attributes['postsToShow'],
+				'post_status'         => 'publish',
+				'order'               => 'desc',
+				'orderby'             => 'date',
+				'suppress_filters'    => false,
+				'ignore_sticky_posts' => true,
+				'no_found_rows'       => true,
 			];
 
 			if ( isset( $author_id ) ) {
@@ -82,32 +82,37 @@ class profile {
 			}
 
 			/**
-			 * Filters the arguments for the Recent Posts widget.
+			 * Filters the arguments for the Recent Posts.
 			 *
-			 * Filter hook: cycle_blocks/profile/widget_posts_args
+			 * Filter hook: cycle_blocks/profile/recent_posts_args
 			 *
-			 * @since 3.4.0
-			 * @since 4.9.0 Added the `$instance` parameter.
-			 *
-			 * @see WP_Query::get_posts()
+			 * @see WP_Query
 			 *
 			 * @param array  $args     An array of arguments used to retrieve the recent posts.
 			 */
-			$recent_posts = get_posts( apply_filters( 'cycle_blocks/profile/widget_posts_args', $args ) );
+			$recent_posts = new \WP_Query( apply_filters( 'cycle_blocks/profile/recent_posts_args', $args ) );
+
+			if ( ! $recent_posts->have_posts() ) {
+				return;
+			}
 
 			$list_items_markup = '';
 
-			foreach ( $recent_posts as $post ) {
-				$post_link = esc_url( get_permalink( $post ) );
-				$title     = get_the_title( $post );
-				$featured_image = '';
+			while ( $recent_posts->have_posts() ) {
+				$recent_posts->the_post();
 
-				if ( ! $title ) {
-					$title = __( '(no title)', 'cycle-blocks' );
+				$post_permalink      = get_permalink( $post );
+				$post_title          = get_the_title( $post );
+
+				$featured_image_markup = '';
+
+				if ( ! $post_title ) {
+					$post_title = __( '(no title)', 'cycle-blocks' );
 				}
 
 				if ( $attributes['displayFeaturedImage'] && ( has_post_thumbnail( $post ) || isset( $attributes['featuredImageId'] ) ) ) {
-					$image_style = '';
+					$featured_image     = '';
+					$image_style        = '';
 					$image_classnames[] = 'wp-block-cycle-blocks-profile__featured-image';
 
 					if ( has_post_thumbnail( $post ) ) {
@@ -131,11 +136,11 @@ class profile {
 						);
 					}
 
-					$featured_image = sprintf(
+					$featured_image_markup = sprintf(
 						'<figure class="%1$s"><a href="%2$s" aria-label="%3$s">%4$s</a></figure>',
 						esc_attr( implode( ' ', $image_classnames ) ),
-						esc_url( $post_link ),
-						esc_attr( $title ),
+						esc_url( $post_permalink ),
+						esc_attr( $post_title ),
 						$featured_image
 					);
 				}
@@ -146,17 +151,17 @@ class profile {
 					esc_html( get_the_date( '', $post ) )
 				);
 
-				$post_link = sprintf(
+				$post_permalink = sprintf(
 					'<a href="%1$s">%2$s</a>',
-					esc_url( $post_link ),
-					esc_html( $title )
+					esc_url( $post_permalink ),
+					esc_html( $post_title )
 				);
 
 				$list_items_markup .= sprintf(
 					'<li>%1$s<div class="wp-block-cycle-blocks-profile__recent-post-content">%2$s%3$s</div></li>',
-					$featured_image,
+					$featured_image_markup,
 					$post_time,
-					$post_link
+					$post_permalink
 				);
 			}
 
@@ -194,16 +199,15 @@ class profile {
 
 		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
 
-		return sprintf(
-			'<div %1$s>', $wrapper_attributes ) .
-			( ! empty( $attributes['showTitle'] ) ? '<div class="wp-block-cycle-blocks-profile__header"><h3 class="wp-block-cycle-blocks-profile__title">' . $attributes['title'] . '</h3></div>' : '' ) .
-			( ! empty( $attributes['showAvatar'] ) ? '<div class="wp-block-cycle-blocks-profile__avatar">' . $avatar . '</div>' : '' ) .
+		return sprintf( '<div %1$s>', $wrapper_attributes ) .
+			( ! empty( $attributes['showTitle'] ) && $attributes['title'] ? '<div class="wp-block-cycle-blocks-profile__header"><h3 class="wp-block-cycle-blocks-profile__title">' . $attributes['title'] . '</h3></div>' : '' ) .
+			( ! empty( $attributes['showAvatar'] ) && $avatar ? '<div class="wp-block-cycle-blocks-profile__avatar">' . $avatar . '</div>' : '' ) .
 			'<div class="wp-block-cycle-blocks-profile__content">' .
 			( ! empty( $byline ) ? '<p class="wp-block-cycle-blocks-profile__byline">' . esc_html( $byline ) . '</p>' : '' ) .
 			'<p class="wp-block-cycle-blocks-profile__name">' . get_the_author_meta( 'display_name', $author_id ) . '</p>' .
-			( ! empty( $attributes['showBio'] ) ? '<p class="wp-block-cycle-blocks-profile__bio">' . get_the_author_meta( 'user_description', $author_id ) . '</p>' : '' ) .
+			( ! empty( $attributes['showBio'] ) && get_the_author_meta( 'user_description', $author_id ) ? '<p class="wp-block-cycle-blocks-profile__bio">' . get_the_author_meta( 'user_description', $author_id ) . '</p>' : '' ) .
 			'</div>' .
-			( ! empty( $attributes['showRecentPosts'] ) ? '<div class="wp-block-cycle-blocks-profile__recent-post">' . $post_content . '</div>' : '' ) .
+			( ! empty( $attributes['showRecentPosts'] ) && $post_content ? '<div class="wp-block-cycle-blocks-profile__recent-post">' . $post_content . '</div>' : '' ) .
 			'</div>';
 	}
 }
