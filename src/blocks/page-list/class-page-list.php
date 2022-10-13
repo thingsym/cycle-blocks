@@ -52,13 +52,13 @@ class Page_List {
 		if ( $attributes['layout'] === 'list' ) {
 			$post_content = $this->get_list_layout( $pages, $parsed_args, $attributes );
 		}
-		else if ( $attributes['layout'] === 'card' ) {
+		elseif ( $attributes['layout'] === 'card' ) {
 			$post_content = $this->get_card_layout( $pages, $parsed_args, $attributes );
 		}
-		else if ( $attributes['layout'] === 'topics' ) {
+		elseif ( $attributes['layout'] === 'topics' ) {
 			$post_content = $this->get_topics_layout( $pages, $parsed_args, $attributes );
 		}
-		else if ( $attributes['layout'] === 'article' ) {
+		elseif ( $attributes['layout'] === 'article' ) {
 			$post_content = $this->get_article_layout( $pages, $parsed_args, $attributes );
 		}
 
@@ -84,8 +84,8 @@ class Page_List {
 			'hierarchical' => 1,
 			'exclude'      => [],
 			'include'      => [],
-			'meta_key'     => '',
-			'meta_value'   => '',
+			'meta_key'     => '', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+			'meta_value'   => '', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 			'authors'      => '',
 			'parent'       => -1,
 			'exclude_tree' => [],
@@ -115,8 +115,8 @@ class Page_List {
 		$args['post_type']   = $post_type;
 
 		if ( $attributes['layout'] === 'list' ) {
-			$args['depth']    = $attributes['depth'] ? $attributes['depth'] : 1;
-			$args['parent']   = -1;
+			$args['depth']  = $attributes['depth'] ? $attributes['depth'] : 1;
+			$args['parent'] = -1;
 
 			if ( $attributes['displayAncestor'] ) {
 				$ancestor = $this->get_post_id_ancestor( $post );
@@ -192,7 +192,7 @@ class Page_List {
 						]
 					);
 				}
-				else if ( isset( $attributes['featuredImageId'] ) ) {
+				elseif ( isset( $attributes['featuredImageId'] ) ) {
 					$image_classnames[] = 'attachment-medium';
 					$image_classnames[] = 'wp-post-image';
 
@@ -263,7 +263,7 @@ class Page_List {
 						]
 					);
 				}
-				else if ( isset( $attributes['featuredImageId'] ) ) {
+				elseif ( isset( $attributes['featuredImageId'] ) ) {
 					$image_classnames[] = 'attachment-medium_large';
 					$image_classnames[] = 'wp-post-image';
 
@@ -323,7 +323,7 @@ class Page_List {
 
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
-				$image_style = '';
+				$image_style    = '';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
@@ -334,7 +334,7 @@ class Page_List {
 						]
 					);
 				}
-				else if ( isset( $attributes['featuredImageId'] ) ) {
+				elseif ( isset( $attributes['featuredImageId'] ) ) {
 					$image_classnames[] = 'attachment-large';
 					$image_classnames[] = 'wp-post-image';
 
@@ -403,7 +403,7 @@ class Page_List {
 	}
 
 	public function get_post_id_ancestor( $post, $root_ancestor = false ) {
-		$ancestor_list = $this->get_post_id_list_ancestor( $post, $root_ancestor );
+		$ancestor_list    = $this->get_post_id_list_ancestor( $post, $root_ancestor );
 		$ancestor_post_id = array_pop( $ancestor_list );
 
 		return $ancestor_post_id;

@@ -73,6 +73,7 @@ class Sitemap {
 				'ignore_sticky_posts' => true,
 				'no_found_rows'       => true,
 			];
+
 			$posts = new \WP_Query( $args );
 
 			if ( $posts->have_posts() ) {

@@ -61,7 +61,7 @@ class Profile {
 			$attributes['avatarSize']
 		) : null;
 
-		$byline  = ! empty( $attributes['byline'] ) ? $attributes['byline'] : false;
+		$byline = ! empty( $attributes['byline'] ) ? $attributes['byline'] : false;
 
 		$post_content = '';
 
@@ -101,8 +101,8 @@ class Profile {
 			while ( $recent_posts->have_posts() ) {
 				$recent_posts->the_post();
 
-				$post_permalink      = get_permalink( $post );
-				$post_title          = get_the_title( $post );
+				$post_permalink = get_permalink( $post );
+				$post_title     = get_the_title( $post );
 
 				$featured_image_markup = '';
 
@@ -124,7 +124,7 @@ class Profile {
 							]
 						);
 					}
-					else if ( isset( $attributes['featuredImageId'] ) ) {
+					elseif ( isset( $attributes['featuredImageId'] ) ) {
 						$featured_image = wp_get_attachment_image(
 							$attributes['featuredImageId'],
 							'thumbnail',

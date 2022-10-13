@@ -132,7 +132,7 @@ class Cycle_Blocks {
 			$categories,
 			[
 				[
-					'slug' => 'cycle-blocks',
+					'slug'  => 'cycle-blocks',
 					'title' => __( 'Cycle Blocks', 'cycle-blocks' ),
 				],
 			]
@@ -198,7 +198,7 @@ class Cycle_Blocks {
 	 * @since 1.0.0
 	 */
 	public function plugin_metadata_links( $links, $file ) {
-		if ( $file == plugin_basename( CYCLE_BLOCKS ) ) {
+		if ( $file === plugin_basename( CYCLE_BLOCKS ) ) {
 			$links[] = '<a href="https://github.com/sponsors/thingsym">' . __( 'Become a sponsor', 'cycle-blocks' ) . '</a>';
 		}
 
