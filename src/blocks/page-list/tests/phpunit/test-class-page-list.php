@@ -7,7 +7,7 @@
 
 class Test_Class_Page_List extends WP_UnitTestCase {
 
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 		$this->page_list = new \Cycle_Blocks\Blocks\Page_List();
 	}
