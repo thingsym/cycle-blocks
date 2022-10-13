@@ -88,3 +88,7 @@ jobs:
       - name: Run Jest unit test - WordPress ${{ matrix.wordpress }}
         run: npm run test:jest
         if: ${{ matrix.php == '7.4' && matrix.wordpress == 'latest' }}
+
+      - name: Run PHP CodeSniffer - WordPress ${{ matrix.wordpress }}
+        run: composer run phpcs
+        if: ${{ matrix.php == '7.4' && matrix.wordpress == 'latest' }}
