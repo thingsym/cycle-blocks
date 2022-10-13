@@ -69,6 +69,7 @@
     <exclude name="Generic.Commenting.DocComment" />
 
     <exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+    <exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
   </rule>
 
   <rule ref="PHPCompatibilityWP">
