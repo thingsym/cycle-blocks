@@ -8,16 +8,19 @@ import { store as coreStore } from '@wordpress/core-data';
 import { useState } from '@wordpress/element';
 
 const AUTHORS_QUERY = {
-	who: 'authors',
 	per_page: -1,
 	_fields: 'id,name',
 	context: 'view',
 };
 
-export default function UserControl( { value, onChange } ) {
+export default function UserControl( { value, onChange, who } ) {
 	const [ filteredAuthorsList, setFilteredAuthorsList ] = useState();
 	const authorsList = useSelect( ( select ) => {
 		const { getUsers } = select( coreStore );
+
+		if ( who ) {
+			AUTHORS_QUERY.who = who;
+		}
 		return getUsers( AUTHORS_QUERY );
 	}, [] );
 
