@@ -95,6 +95,7 @@ class Page_List {
 			'post_status'  => 'publish',
 		);
 
+		$post      = null;
 		$parent    = -1;
 		$post_type = 'page';
 
@@ -381,7 +382,7 @@ class Page_List {
 
 	public function get_post_id_list_ancestor( $post, $root_ancestor = false ) {
 		$ancestor_list = [];
-		if ( $post->post_parent ) {
+		if ( is_object( $post ) && $post->post_parent ) {
 			$ancestor_list[] = $post->post_parent;
 
 			$ancestor = $post->post_parent;
