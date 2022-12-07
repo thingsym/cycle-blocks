@@ -113,7 +113,6 @@ class Profile {
 				if ( $attributes['displayFeaturedImage'] && ( has_post_thumbnail( $post ) || isset( $attributes['featuredImageId'] ) ) ) {
 					$featured_image     = '';
 					$image_style        = '';
-					$image_classnames[] = 'wp-block-cycle-blocks-profile__featured-image';
 
 					if ( has_post_thumbnail( $post ) ) {
 						$featured_image = get_the_post_thumbnail(
@@ -136,9 +135,11 @@ class Profile {
 						);
 					}
 
+					$figure_classnames[] = 'cycle-blocks-profile_recent-post__featured-image';
+
 					$featured_image_markup = sprintf(
 						'<figure class="%1$s"><a href="%2$s" aria-label="%3$s">%4$s</a></figure>',
-						esc_attr( implode( ' ', $image_classnames ) ),
+						esc_attr( implode( ' ', $figure_classnames ) ),
 						esc_url( $post_permalink ),
 						esc_attr( $post_title ),
 						$featured_image
@@ -146,7 +147,7 @@ class Profile {
 				}
 
 				$post_time = sprintf(
-					'<time datetime="%1$s" class="wp-block-cycle-blocks-profile__post-date">%2$s</time>',
+					'<time datetime="%1$s" class="cycle-blocks-profile__post-date">%2$s</time>',
 					esc_attr( get_the_date( 'c', $post ) ),
 					esc_html( get_the_date( '', $post ) )
 				);
@@ -158,7 +159,7 @@ class Profile {
 				);
 
 				$list_items_markup .= sprintf(
-					'<li>%1$s<div class="wp-block-cycle-blocks-profile__recent-post-content">%2$s%3$s</div></li>',
+					'<li>%1$s<div class="cycle-blocks-profile_recent-post__content">%2$s%3$s</div></li>',
 					$featured_image_markup,
 					$post_time,
 					$post_permalink
@@ -170,11 +171,11 @@ class Profile {
 			$post_classnames = [];
 
 			if ( isset( $attributes['postLayout'] ) && 'grid' === $attributes['postLayout'] ) {
-				$post_classnames[] = 'is-grid';
+				$post_classnames[] = 'cycle-blocks-profile__recent-post--layout-grid';
 			}
 
 			if ( isset( $attributes['postColumns'] ) && 'grid' === $attributes['postLayout'] ) {
-				$post_classnames[] = 'columns-' . $attributes['postColumns'];
+				$post_classnames[] = 'cycle-blocks-profile__recent-post--columns-' . $attributes['postColumns'];
 			}
 
 			if ( isset( $attributes['displayFeaturedImage'] ) ) {
@@ -193,21 +194,22 @@ class Profile {
 		}
 
 		$classes = array_merge(
-			isset( $attributes['className'] ) ? array( $attributes['className'] ) : array(),
-			isset( $attributes['itemsJustification'] ) ? array( 'items-justified-' . $attributes['itemsJustification'] ) : array()
+			[ 'cycle-blocks-profile' ],
+			isset( $attributes['className'] ) ? [ $attributes['className'] ] : [],
+			isset( $attributes['itemsJustification'] ) ? [ 'items-justified-' . $attributes['itemsJustification'] ] : []
 		);
 
-		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
+		$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => implode( ' ', $classes ) ] );
 
 		return sprintf( '<div %1$s>', $wrapper_attributes ) .
-			( ! empty( $attributes['showTitle'] ) && $attributes['title'] ? '<div class="wp-block-cycle-blocks-profile__header"><h3 class="wp-block-cycle-blocks-profile__title">' . $attributes['title'] . '</h3></div>' : '' ) .
-			( ! empty( $attributes['showAvatar'] ) && $avatar ? '<div class="wp-block-cycle-blocks-profile__avatar">' . $avatar . '</div>' : '' ) .
-			'<div class="wp-block-cycle-blocks-profile__content">' .
-			( ! empty( $byline ) ? '<p class="wp-block-cycle-blocks-profile__byline">' . esc_html( $byline ) . '</p>' : '' ) .
-			'<p class="wp-block-cycle-blocks-profile__name">' . get_the_author_meta( 'display_name', $author_id ) . '</p>' .
-			( ! empty( $attributes['showBio'] ) && get_the_author_meta( 'user_description', $author_id ) ? '<p class="wp-block-cycle-blocks-profile__bio">' . get_the_author_meta( 'user_description', $author_id ) . '</p>' : '' ) .
+			( ! empty( $attributes['showTitle'] ) && $attributes['title'] ? '<div class="cycle-blocks-profile__header"><h3 class="cycle-blocks-profile__title">' . $attributes['title'] . '</h3></div>' : '' ) .
+			( ! empty( $attributes['showAvatar'] ) && $avatar ? '<div class="cycle-blocks-profile__avatar">' . $avatar . '</div>' : '' ) .
+			'<div class="cycle-blocks-profile__content">' .
+			( ! empty( $byline ) ? '<p class="cycle-blocks-profile__byline">' . esc_html( $byline ) . '</p>' : '' ) .
+			'<p class="cycle-blocks-profile__name">' . get_the_author_meta( 'display_name', $author_id ) . '</p>' .
+			( ! empty( $attributes['showBio'] ) && get_the_author_meta( 'user_description', $author_id ) ? '<p class="cycle-blocks-profile__bio">' . get_the_author_meta( 'user_description', $author_id ) . '</p>' : '' ) .
 			'</div>' .
-			( ! empty( $attributes['showRecentPosts'] ) && $post_content ? '<div class="wp-block-cycle-blocks-profile__recent-post">' . $post_content . '</div>' : '' ) .
+			( ! empty( $attributes['showRecentPosts'] ) && $post_content ? '<div class="cycle-blocks-profile__recent-post">' . $post_content . '</div>' : '' ) .
 			'</div>';
 	}
 }
