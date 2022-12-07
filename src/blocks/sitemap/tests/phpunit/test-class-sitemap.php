@@ -60,10 +60,10 @@ class Test_Class_Sitemap extends WP_UnitTestCase {
 
 		$render = $this->sitemap->render_callback( $attributes );
 
-		$this->assertRegExp( '#cycle-blocks-sitemap-blog#', $render );
-		$this->assertRegExp( '#cycle-blocks-sitemap-page#', $render );
-		$this->assertRegExp( '#cycle-blocks-sitemap-category#', $render );
-		$this->assertRegExp( '#cycle-blocks-sitemap-author#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__blog#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__page#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__category#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__author#', $render );
 	}
 
 	/**
@@ -86,10 +86,10 @@ class Test_Class_Sitemap extends WP_UnitTestCase {
 
 		$render = $this->sitemap->render_callback( $attributes );
 
-		$this->assertNotRegExp( '#cycle-blocks-sitemap-blog#', $render );
-		$this->assertNotRegExp( '#cycle-blocks-sitemap-page#', $render );
-		$this->assertRegExp( '#cycle-blocks-sitemap-category#', $render );
-		$this->assertRegExp( '#cycle-blocks-sitemap-author#', $render );
+		$this->assertNotRegExp( '#cycle-blocks-sitemap__blog#', $render );
+		$this->assertNotRegExp( '#cycle-blocks-sitemap__page#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__category#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__author#', $render );
 	}
 
 	/**
@@ -112,10 +112,10 @@ class Test_Class_Sitemap extends WP_UnitTestCase {
 
 		$render = $this->sitemap->render_callback( $attributes );
 
-		$this->assertRegExp( '#cycle-blocks-sitemap-blog#', $render );
-		$this->assertRegExp( '#cycle-blocks-sitemap-page#', $render );
-		$this->assertNotRegExp( '#cycle-blocks-sitemap-category#', $render );
-		$this->assertNotRegExp( '#cycle-blocks-sitemap-author#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__blog#', $render );
+		$this->assertRegExp( '#cycle-blocks-sitemap__page#', $render );
+		$this->assertNotRegExp( '#cycle-blocks-sitemap__category#', $render );
+		$this->assertNotRegExp( '#cycle-blocks-sitemap__author#', $render );
 	}
 
 }
