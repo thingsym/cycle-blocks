@@ -24,7 +24,7 @@ import {
 	ToolbarGroup,
 	Placeholder,
 } from '@wordpress/components';
-import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
+import { dateI18n, format, getSettings } from '@wordpress/date';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { store as coreStore } from '@wordpress/core-data';
@@ -165,13 +165,15 @@ export default function profileEdit( {
 		},
 	];
 
-	const dateFormat = __experimentalGetSettings().formats.date;
+	const dateFormat = getSettings().formats.date;
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		className: 'cycle-blocks-profile'
+	} );
 
 	const post_class = classnames( {
-		'is-grid': postLayout === 'grid',
-		[ `columns-${ postColumns }` ]: postLayout === 'grid',
+		'cycle-blocks-profile__recent-post--layout-grid': postLayout === 'grid',
+		[ `cycle-blocks-profile__recent-post--columns-${ postColumns }` ]: postLayout === 'grid',
 	} );
 
 	const { mediaSizes } = useSelect(
@@ -325,10 +327,10 @@ export default function profileEdit( {
 			) }
 			<div { ...blockProps }>
 				{ showTitle && (
-					<div className="wp-block-cycle-blocks-profile__header">
+					<div className="cycle-blocks-profile__header">
 						{ ( ! RichText.isEmpty( title ) || isSelected ) && (
 							<RichText
-								className="wp-block-cycle-blocks-profile__title"
+								className="cycle-blocks-profile__title"
 								tagName={ "h3" }
 								multiline={ false }
 								aria-label={ __( 'Title', 'cycle-blocks' ) }
@@ -342,7 +344,7 @@ export default function profileEdit( {
 					</div>
 				) }
 				{ showAvatar && authorDetails && (
-					<div className="wp-block-cycle-blocks-profile__avatar">
+					<div className="cycle-blocks-profile__avatar">
 						<img
 							width={ attributes.avatarSize }
 							src={
@@ -354,10 +356,10 @@ export default function profileEdit( {
 						/>
 					</div>
 				) }
-				<div className="wp-block-cycle-blocks-profile__content">
+				<div className="cycle-blocks-profile__content">
 					{ ( ! RichText.isEmpty( byline ) || isSelected ) && (
 						<RichText
-							className="wp-block-cycle-blocks-profile__byline"
+							className="cycle-blocks-profile__byline"
 							multiline={ false }
 							aria-label={ __( 'Post author byline text', 'cycle-blocks' ) }
 							placeholder={ __( 'Write byline…', 'cycle-blocks' ) }
@@ -369,21 +371,21 @@ export default function profileEdit( {
 					) }
 
 					{ authorDetails?.name && (
-						<p className="wp-block-cycle-blocks-profile__name">
+						<p className="cycle-blocks-profile__name">
 							{ authorDetails?.name || __( 'Post Author', 'cycle-blocks' ) }
 						</p>
 					) }
 					{ authorDetails?.description && showBio && (
-						<p className="wp-block-cycle-blocks-profile__bio">
+						<p className="cycle-blocks-profile__bio">
 							{ authorDetails?.description }
 						</p>
 					) }
 				</div>
 				{ showRecentPosts && latestPosts && (
-					<div className="wp-block-cycle-blocks-profile__recent-post">
+					<div className="cycle-blocks-profile__recent-post">
 						{ ( ! RichText.isEmpty( authorTitle ) || isSelected ) && (
 							<RichText
-								className="wp-block-cycle-blocks-profile__author_title"
+								className="cycle-blocks-profile__author_title"
 								tagName={ "h4" }
 								multiline={ false }
 								aria-label={ __( 'Author title', 'cycle-blocks' ) }
@@ -412,31 +414,33 @@ export default function profileEdit( {
 									const renderFeaturedImage =
 										displayFeaturedImage && ( imageSourceUrl || mediaSizes );
 
+									const image_size = postLayout === 'grid' ? 'medium' : 'thumbnail';
+
 									const featuredImage = renderFeaturedImage && (
 										<img
 											src={
 												imageSourceUrl ? imageSourceUrl
-												: mediaSizes[ 'thumbnail' ] ? mediaSizes[ 'thumbnail' ].source_url
+												: mediaSizes[ image_size ] ? mediaSizes[ image_size ].source_url
 												: mediaSizes[ 'full' ].source_url ? mediaSizes[ 'full' ].source_url
 												: ''
 											}
 											alt={ featuredImageAlt }
-											className='attachment-thumbnail size-thumbnail wp-post-image'
+											className={ `attachment-${ image_size } wp-post-image` }
 										/>
 									);
 
 									return (
 										<li key={ i }>
 											{ displayFeaturedImage && featuredImage && (
-												<div className="wp-block-cycle-blocks-profile__featured-image">
+												<div className="cycle-blocks-profile_recent-post__featured-image">
 													<a href={ post.link } rel="noreferrer noopener">{ featuredImage }</a>
 												</div>
 											) }
-											<div className="wp-block-cycle-blocks-profile__recent-post-content">
+											<div className="cycle-blocks-profile_recent-post__content">
 												{ post.date_gmt && (
 													<time
 														dateTime={ format( 'c', post.date_gmt ) }
-														className="wp-block-cycle-blocks-profile__post-date"
+														className="cycle-blocks-profile__post-date"
 													>
 														{ dateI18n( dateFormat, post.date_gmt ) }
 													</time>

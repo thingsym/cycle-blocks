@@ -46,14 +46,14 @@ class Sitemap {
 		$display_author   = ! empty( $attributes['displayAuthor'] );
 
 		$sitemap_markup = '';
-		$class          = 'cycle-blocks-sitemap cycle-blocks-sitemap-';
+		$class          = 'cycle-blocks-sitemap cycle-blocks-sitemap__';
 		$wrapper_markup = '<ul class="%1$s">%2$s</ul>';
 
 		if ( $display_page ) {
 			$pages = wp_list_pages( 'title_li=&echo=0' );
 
 			if ( $pages ) {
-				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap-title">' . __( 'Page', 'cycle-blocks' ) . '</h3>';
+				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap__title">' . __( 'Page', 'cycle-blocks' ) . '</h3>';
 				$sitemap_markup .= sprintf(
 					$wrapper_markup,
 					esc_attr( $class . 'page' ),
@@ -90,7 +90,7 @@ class Sitemap {
 
 				wp_reset_postdata();
 
-				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap-title">' . __( 'Blog', 'cycle-blocks' ) . '</h3>';
+				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap__title">' . __( 'Blog', 'cycle-blocks' ) . '</h3>';
 				$sitemap_markup .= sprintf(
 					$wrapper_markup,
 					esc_attr( $class . 'blog' ),
@@ -103,7 +103,7 @@ class Sitemap {
 			$categories = wp_list_categories( 'title_li=&echo=0&show_count=1' );
 
 			if ( $categories ) {
-				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap-title">' . __( 'Category', 'cycle-blocks' ) . '</h3>';
+				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap__title">' . __( 'Category', 'cycle-blocks' ) . '</h3>';
 				$sitemap_markup .= sprintf(
 					$wrapper_markup,
 					esc_attr( $class . 'category' ),
@@ -116,7 +116,7 @@ class Sitemap {
 			$authors = wp_list_authors( 'title_li=&echo=0&exclude_admin=0&optioncount=1' );
 
 			if ( $authors ) {
-				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap-title">' . __( 'Author', 'cycle-blocks' ) . '</h3>';
+				$sitemap_markup .= '<h3 class="cycle-blocks-sitemap__title">' . __( 'Author', 'cycle-blocks' ) . '</h3>';
 				$sitemap_markup .= sprintf(
 					$wrapper_markup,
 					esc_attr( $class . 'author' ),

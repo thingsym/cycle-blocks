@@ -62,9 +62,9 @@ class Page_List {
 			$post_content = $this->get_article_layout( $pages, $parsed_args, $attributes );
 		}
 
-		$classes[] = $attributes['layout'] ? 'layout-' . $attributes['layout'] : '';
 		$classes[] = $parsed_args['parent'] ? 'parent-post-' . $parsed_args['parent'] : '';
-		$classes[] = $attributes['layout'] === 'card' && $attributes['columns'] ? 'columns-' . $attributes['columns'] : '';
+		$classes[] = $attributes['layout'] === 'card' && $attributes['columns'] ? 'cycle-blocks-page-list__layout-card--columns-' . $attributes['columns'] : '';
+		$classes[] = $attributes['layout'] ? 'cycle-blocks-page-list__layout-' . $attributes['layout'] : '';
 
 		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
 
@@ -183,23 +183,24 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
+				$image_size     = $attributes[ 'columns' ] > 2 ? 'medium' : 'medium_large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
 						$post,
-						'medium',
+						$image_size,
 						[
 							'style' => esc_attr( $image_style ),
 						]
 					);
 				}
 				elseif ( isset( $attributes['featuredImageId'] ) ) {
-					$image_classnames[] = 'attachment-medium';
+					$image_classnames[] = 'attachment-' . $image_size;
 					$image_classnames[] = 'wp-post-image';
 
 					$featured_image = wp_get_attachment_image(
 						$attributes['featuredImageId'],
-						'medium',
+						$image_size,
 						false,
 						[
 							'style' => esc_attr( $image_style ),
@@ -216,11 +217,11 @@ class Page_List {
 						$featured_image
 					);
 
-					$classnames[] = 'wp-block-cycle-blocks-page-list__featured-image';
+					$figure_classnames[] = 'cycle-blocks-page-list__featured-image';
 
 					$featured_image_markup = sprintf(
 						'<figure class="%1$s">%2$s</figure>',
-						esc_attr( implode( ' ', $classnames ) ),
+						esc_attr( implode( ' ', $figure_classnames ) ),
 						$featured_image
 					);
 				}
@@ -228,9 +229,9 @@ class Page_List {
 
 			$post_items_markup .= '<article id="post-' . $post_id . '" class="' . esc_attr( implode( ' ', get_post_class( '', $post_id ) ) ) . '">';
 			$post_items_markup .= $featured_image_markup;
-			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__article-inner">';
-			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
-			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__entry-content">';
+			$post_items_markup .= '<div class="cycle-blocks-page-list__article-inner">';
+			$post_items_markup .= '<h2 class="cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
+			$post_items_markup .= '<div class="cycle-blocks-page-list__entry-content">';
 			$post_items_markup .= $post_excerpt;
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</div>';
@@ -254,23 +255,24 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
+				$image_size     = 'medium_large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
 						$post,
-						'medium_large',
+						$image_size,
 						[
 							'style' => esc_attr( $image_style ),
 						]
 					);
 				}
 				elseif ( isset( $attributes['featuredImageId'] ) ) {
-					$image_classnames[] = 'attachment-medium_large';
+					$image_classnames[] = 'attachment-' . $image_size;
 					$image_classnames[] = 'wp-post-image';
 
 					$featured_image = wp_get_attachment_image(
 						$attributes['featuredImageId'],
-						'medium_large',
+						$image_size,
 						false,
 						[
 							'style' => esc_attr( $image_style ),
@@ -287,11 +289,11 @@ class Page_List {
 						$featured_image
 					);
 
-					$classnames[] = 'wp-block-cycle-blocks-page-list__featured-image';
+					$figure_classnames[] = 'cycle-blocks-page-list__featured-image';
 
 					$featured_image_markup = sprintf(
 						'<figure class="%1$s">%2$s</figure>',
-						esc_attr( implode( ' ', $classnames ) ),
+						esc_attr( implode( ' ', $figure_classnames ) ),
 						$featured_image
 					);
 				}
@@ -299,9 +301,9 @@ class Page_List {
 
 			$post_items_markup .= '<article id="post-' . $post_id . '" class="' . esc_attr( implode( ' ', get_post_class( '', $post_id ) ) ) . '">';
 			$post_items_markup .= $featured_image_markup;
-			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__article-inner">';
-			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
-			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__entry-content">';
+			$post_items_markup .= '<div class="cycle-blocks-page-list__article-inner">';
+			$post_items_markup .= '<h2 class="cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
+			$post_items_markup .= '<div class="cycle-blocks-page-list__entry-content">';
 			$post_items_markup .= $post_excerpt;
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</div>';
@@ -325,23 +327,24 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
+				$image_size     = 'large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
 						$post,
-						'large',
+						$image_size,
 						[
 							'style' => esc_attr( $image_style ),
 						]
 					);
 				}
 				elseif ( isset( $attributes['featuredImageId'] ) ) {
-					$image_classnames[] = 'attachment-large';
+					$image_classnames[] = 'attachment' . $image_size;
 					$image_classnames[] = 'wp-post-image';
 
 					$featured_image = wp_get_attachment_image(
 						$attributes['featuredImageId'],
-						'large',
+						$image_size,
 						false,
 						[
 							'style' => esc_attr( $image_style ),
@@ -358,20 +361,20 @@ class Page_List {
 						$featured_image
 					);
 
-					$classnames[] = 'wp-block-cycle-blocks-page-list__featured-image';
+					$figure_classnames[] = 'cycle-blocks-page-list__featured-image';
 
 					$featured_image_markup = sprintf(
 						'<figure class="%1$s">%2$s</figure>',
-						esc_attr( implode( ' ', $classnames ) ),
+						esc_attr( implode( ' ', $figure_classnames ) ),
 						$featured_image
 					);
 				}
 			}
 
 			$post_items_markup .= '<article id="post-' . $post_id . '" class="' . esc_attr( implode( ' ', get_post_class( '', $post_id ) ) ) . '">';
-			$post_items_markup .= '<h2 class="wp-block-cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
+			$post_items_markup .= '<h2 class="cycle-blocks-page-list__entry-title"><a href="' . $post_permalink . '">' . $post_title . '</a></h2>';
 			$post_items_markup .= $featured_image_markup;
-			$post_items_markup .= '<div class="wp-block-cycle-blocks-page-list__entry-content">';
+			$post_items_markup .= '<div class="cycle-blocks-page-list__entry-content">';
 			$post_items_markup .= $post_excerpt;
 			$post_items_markup .= '</div>';
 			$post_items_markup .= '</article>';
