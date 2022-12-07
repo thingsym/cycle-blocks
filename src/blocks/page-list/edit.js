@@ -103,6 +103,10 @@ export default function pageListEdit( { attributes, setAttributes } ) {
 		return selectOption;
 	}, [] );
 
+	const blockProps = useBlockProps( {
+		className: 'cycle-blocks-page-list'
+	} );
+
 	const inspectorControls = (
 		<InspectorControls>
 			<PanelBody title={ __( 'Settings', 'cycle-blocks' ) } >
@@ -205,7 +209,7 @@ export default function pageListEdit( { attributes, setAttributes } ) {
 	return (
 		<>
 			{ inspectorControls }
-			<div { ...useBlockProps() }>
+			<div { ...blockProps }>
 				<Disabled>
 					<ServerSideRender
 						block="cycle-blocks/page-list"

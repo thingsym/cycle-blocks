@@ -62,11 +62,12 @@ class Page_List {
 			$post_content = $this->get_article_layout( $pages, $parsed_args, $attributes );
 		}
 
-		$classes[] = $parsed_args['parent'] ? 'parent-post-' . $parsed_args['parent'] : '';
-		$classes[] = $attributes['layout'] === 'card' && $attributes['columns'] ? 'cycle-blocks-page-list__layout-card--columns-' . $attributes['columns'] : '';
-		$classes[] = $attributes['layout'] ? 'cycle-blocks-page-list__layout-' . $attributes['layout'] : '';
+		$wrapper_classes[] = 'cycle-blocks-page-list';
+		$wrapper_classes[] = $parsed_args['parent'] ? 'parent-post-' . $parsed_args['parent'] : null;
+		$wrapper_classes[] = $attributes['layout'] === 'card' && $attributes['columns'] ? 'cycle-blocks-page-list__layout-card--columns-' . $attributes['columns'] : null;
+		$wrapper_classes[] = $attributes['layout'] ? 'cycle-blocks-page-list__layout-' . $attributes['layout'] : null;
 
-		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classes ) ) );
+		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $wrapper_classes ) ) );
 
 		return sprintf(
 			'<div %1$s>%2$s</div>',

@@ -21,6 +21,10 @@ export default function sitemapEdit( { attributes, setAttributes } ) {
 		displayAuthor,
 	} = attributes;
 
+	const blockProps = useBlockProps( {
+		className: 'cycle-blocks-sitemap'
+	} );
+
 	const inspectorControls = (
 		<InspectorControls>
 			<PanelBody title={ __( 'Sitemap settings', 'cycle-blocks' ) } >
@@ -67,7 +71,7 @@ export default function sitemapEdit( { attributes, setAttributes } ) {
 	return (
 		<>
 			{ inspectorControls }
-			<div { ...useBlockProps() }>
+			<div { ...blockProps }>
 				<Disabled>
 					<ServerSideRender
 						block="cycle-blocks/sitemap"

@@ -125,6 +125,14 @@ class Sitemap {
 			}
 		}
 
-		return $sitemap_markup;
+		$wrapper_classes[] = 'cycle-blocks-sitemap';
+
+		$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => implode( ' ', $wrapper_classes ) ] );
+
+		return sprintf(
+			'<div %1$s>%2$s</div>',
+			$wrapper_attributes,
+			$sitemap_markup
+		);
 	}
 }

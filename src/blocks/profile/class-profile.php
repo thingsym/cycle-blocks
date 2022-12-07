@@ -201,11 +201,8 @@ class Profile {
 			);
 		}
 
-		$wrapper_classes = array_merge(
-			[ 'cycle-blocks-profile' ],
-			isset( $attributes['className'] ) ? [ $attributes['className'] ] : [],
-			isset( $attributes['itemsJustification'] ) ? [ 'items-justified-' . $attributes['itemsJustification'] ] : []
-		);
+		$wrapper_classes[] = 'cycle-blocks-profile';
+		$wrapper_classes[] = isset( $attributes['itemsJustification'] ) ? 'items-justified-' . $attributes['itemsJustification'] : null;
 
 		$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => implode( ' ', $wrapper_classes ) ] );
 

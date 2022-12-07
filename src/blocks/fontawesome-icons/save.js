@@ -27,10 +27,13 @@ export default function fontawesomeIconsSave( { attributes, setAttributes } ) {
 	};
 
 	const blockProps = useBlockProps.save( {
-		className: classnames( {
-			[ `has-text-align-${ textAlign }` ]: textAlign,
-			[ `has-inline-icon` ]: enableInlineBlock,
-		} ),
+		className: classnames(
+			'cycle-blocks-fontawesome-icons',
+			{
+				[ `has-text-align-${ textAlign }` ]: textAlign,
+				[ `has-inline-icon` ]: enableInlineBlock,
+			}
+		),
 		style: {
 			backgroundColor: backgroundColor || null,
 			padding: enableInlineBlock && iconSize ? iconSize : null,
