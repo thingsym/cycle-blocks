@@ -201,13 +201,13 @@ class Profile {
 			);
 		}
 
-		$classes = array_merge(
+		$wrapper_classes = array_merge(
 			[ 'cycle-blocks-profile' ],
 			isset( $attributes['className'] ) ? [ $attributes['className'] ] : [],
 			isset( $attributes['itemsJustification'] ) ? [ 'items-justified-' . $attributes['itemsJustification'] ] : []
 		);
 
-		$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => implode( ' ', $classes ) ] );
+		$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => implode( ' ', $wrapper_classes ) ] );
 
 		return sprintf( '<div %1$s>', $wrapper_attributes ) .
 			( ! empty( $attributes['showTitle'] ) && $attributes['title'] ? '<div class="cycle-blocks-profile__header"><h3 class="cycle-blocks-profile__title">' . $attributes['title'] . '</h3></div>' : '' ) .
