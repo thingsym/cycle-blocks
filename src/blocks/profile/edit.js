@@ -167,7 +167,9 @@ export default function profileEdit( {
 
 	const dateFormat = getSettings().formats.date;
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		className: 'cycle-blocks-profile'
+	} );
 
 	const post_class = classnames( {
 		'cycle-blocks-profile__recent-post--layout-grid': postLayout === 'grid',
