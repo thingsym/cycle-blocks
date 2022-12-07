@@ -111,8 +111,8 @@ class Profile {
 				}
 
 				if ( $attributes['displayFeaturedImage'] && ( has_post_thumbnail( $post ) || isset( $attributes['featuredImageId'] ) ) ) {
-					$featured_image     = '';
-					$image_style        = '';
+					$featured_image = '';
+					$image_style    = '';
 
 					$image_size = 'thumbnail';
 					if ( 'grid' === $attributes['postLayout'] ) {
@@ -139,7 +139,7 @@ class Profile {
 							[
 								'style' => esc_attr( $image_style ),
 								'class' => esc_attr( implode( ' ', $image_classnames ) ),
-								]
+							]
 						);
 					}
 

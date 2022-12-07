@@ -184,7 +184,7 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
-				$image_size     = $attributes[ 'columns' ] > 2 ? 'medium' : 'medium_large';
+				$image_size     = $attributes['columns'] > 2 ? 'medium' : 'medium_large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
