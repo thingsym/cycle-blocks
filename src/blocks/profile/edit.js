@@ -24,7 +24,7 @@ import {
 	ToolbarGroup,
 	Placeholder,
 } from '@wordpress/components';
-import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
+import { dateI18n, format, getSettings } from '@wordpress/date';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { store as coreStore } from '@wordpress/core-data';
@@ -165,7 +165,7 @@ export default function profileEdit( {
 		},
 	];
 
-	const dateFormat = __experimentalGetSettings().formats.date;
+	const dateFormat = getSettings().formats.date;
 
 	const blockProps = useBlockProps();
 
