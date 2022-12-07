@@ -183,23 +183,24 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
+				$image_size     = $attributes[ 'columns' ] > 2 ? 'medium' : 'medium_large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
 						$post,
-						'medium',
+						$image_size,
 						[
 							'style' => esc_attr( $image_style ),
 						]
 					);
 				}
 				elseif ( isset( $attributes['featuredImageId'] ) ) {
-					$image_classnames[] = 'attachment-medium';
+					$image_classnames[] = 'attachment-' . $image_size;
 					$image_classnames[] = 'wp-post-image';
 
 					$featured_image = wp_get_attachment_image(
 						$attributes['featuredImageId'],
-						'medium',
+						$image_size,
 						false,
 						[
 							'style' => esc_attr( $image_style ),
@@ -254,23 +255,24 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
+				$image_size     = 'medium_large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
 						$post,
-						'medium_large',
+						$image_size,
 						[
 							'style' => esc_attr( $image_style ),
 						]
 					);
 				}
 				elseif ( isset( $attributes['featuredImageId'] ) ) {
-					$image_classnames[] = 'attachment-medium_large';
+					$image_classnames[] = 'attachment-' . $image_size;
 					$image_classnames[] = 'wp-post-image';
 
 					$featured_image = wp_get_attachment_image(
 						$attributes['featuredImageId'],
-						'medium_large',
+						$image_size,
 						false,
 						[
 							'style' => esc_attr( $image_style ),
@@ -325,23 +327,24 @@ class Page_List {
 			if ( $attributes['displayFeaturedImage'] ) {
 				$featured_image = '';
 				$image_style    = '';
+				$image_size     = 'large';
 
 				if ( has_post_thumbnail( $post ) ) {
 					$featured_image = get_the_post_thumbnail(
 						$post,
-						'large',
+						$image_size,
 						[
 							'style' => esc_attr( $image_style ),
 						]
 					);
 				}
 				elseif ( isset( $attributes['featuredImageId'] ) ) {
-					$image_classnames[] = 'attachment-large';
+					$image_classnames[] = 'attachment' . $image_size;
 					$image_classnames[] = 'wp-post-image';
 
 					$featured_image = wp_get_attachment_image(
 						$attributes['featuredImageId'],
-						'large',
+						$image_size,
 						false,
 						[
 							'style' => esc_attr( $image_style ),

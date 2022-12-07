@@ -412,16 +412,18 @@ export default function profileEdit( {
 									const renderFeaturedImage =
 										displayFeaturedImage && ( imageSourceUrl || mediaSizes );
 
+									const image_size = postLayout === 'grid' ? 'medium' : 'thumbnail';
+
 									const featuredImage = renderFeaturedImage && (
 										<img
 											src={
 												imageSourceUrl ? imageSourceUrl
-												: mediaSizes[ 'thumbnail' ] ? mediaSizes[ 'thumbnail' ].source_url
+												: mediaSizes[ image_size ] ? mediaSizes[ image_size ].source_url
 												: mediaSizes[ 'full' ].source_url ? mediaSizes[ 'full' ].source_url
 												: ''
 											}
 											alt={ featuredImageAlt }
-											className='attachment-thumbnail size-thumbnail wp-post-image'
+											className={ `attachment-${ image_size } wp-post-image` }
 										/>
 									);
 

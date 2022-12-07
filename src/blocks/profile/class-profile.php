@@ -114,24 +114,32 @@ class Profile {
 					$featured_image     = '';
 					$image_style        = '';
 
+					$image_size = 'thumbnail';
+					if ( 'grid' === $attributes['postLayout'] ) {
+						$image_size = 'medium';
+					}
+
 					if ( has_post_thumbnail( $post ) ) {
 						$featured_image = get_the_post_thumbnail(
 							$post,
-							'thumbnail',
+							$image_size,
 							[
 								'style' => esc_attr( $image_style ),
 							]
 						);
 					}
 					elseif ( isset( $attributes['featuredImageId'] ) ) {
+						$image_classnames[] = 'attachment-' . $image_size;
+						$image_classnames[] = 'wp-post-image';
+
 						$featured_image = wp_get_attachment_image(
 							$attributes['featuredImageId'],
-							'thumbnail',
+							$image_size,
 							false,
 							[
 								'style' => esc_attr( $image_style ),
-								'class' => 'attachment-thumbnail size-thumbnail wp-post-image',
-							]
+								'class' => esc_attr( implode( ' ', $image_classnames ) ),
+								]
 						);
 					}
 
