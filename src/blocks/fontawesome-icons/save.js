@@ -19,7 +19,9 @@ export default function fontawesomeIconsSave( { attributes, setAttributes } ) {
 		textAlign,
 	} = attributes;
 
-	const innerClassName = classnames( `${ iconClassName }` );
+	const innerClassName = classnames(
+		`${ iconClassName }`
+	);
 
 	const iconStyles = {
 		fontSize: iconSize ? iconSize : null,
