@@ -3,7 +3,7 @@
  * Plugin Name: Cycle Blocks
  * Plugin URI: https://github.com/thingsym/cycle-blocks
  * Description: Cycle Blocks plugin is a collection of block for block themes (Full Site Editing).
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: thingsym
  * Author URI:  https://www.thingslabo.com/
  * License:     GPLv2 or later

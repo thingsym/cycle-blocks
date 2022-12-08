@@ -125,6 +125,23 @@ For operation compatibility between PHP version and WordPress version, see below
 
 ## Changelog
 
+### [1.1.1] - 2022.12.08
+
+* fix test case
+* imporve code with phpcs
+* fix block wrapper
+* change variable name
+* add classname to block wrapper
+* fix __experimentalGetSettings deprecated
+* change the image size according to layout or the number of columns
+* remove duplicate editor css
+* using bem and remove wp-block prefix
+* update github actions, Node.js 12 actions are deprecated
+* fix undefined variable php notice
+* fix composer.json
+* fix workflows
+* fix compatible with setUp(): void for ci
+
 ### [1.1.0] - 2022.10.13
 
 * fix phpcs.ruleset.xml
