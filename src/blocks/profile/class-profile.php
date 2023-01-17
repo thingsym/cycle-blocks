@@ -101,8 +101,8 @@ class Profile {
 			while ( $recent_posts->have_posts() ) {
 				$recent_posts->the_post();
 
-				$post_permalink = get_permalink( $post );
-				$post_title     = get_the_title( $post );
+				$post_permalink = get_permalink();
+				$post_title     = get_the_title();
 
 				$featured_image_markup = '';
 
@@ -110,7 +110,7 @@ class Profile {
 					$post_title = __( '(no title)', 'cycle-blocks' );
 				}
 
-				if ( $attributes['displayFeaturedImage'] && ( has_post_thumbnail( $post ) || isset( $attributes['featuredImageId'] ) ) ) {
+				if ( $attributes['displayFeaturedImage'] && ( has_post_thumbnail() || isset( $attributes['featuredImageId'] ) ) ) {
 					$featured_image = '';
 					$image_style    = '';
 
@@ -119,9 +119,9 @@ class Profile {
 						$image_size = 'medium';
 					}
 
-					if ( has_post_thumbnail( $post ) ) {
+					if ( has_post_thumbnail() ) {
 						$featured_image = get_the_post_thumbnail(
-							$post,
+							null,
 							$image_size,
 							[
 								'style' => esc_attr( $image_style ),
@@ -156,8 +156,8 @@ class Profile {
 
 				$post_time = sprintf(
 					'<time datetime="%1$s" class="cycle-blocks-profile__post-date">%2$s</time>',
-					esc_attr( get_the_date( 'c', $post ) ),
-					esc_html( get_the_date( '', $post ) )
+					esc_attr( get_the_date( 'c' ) ),
+					esc_html( get_the_date( '' ) )
 				);
 
 				$post_permalink = sprintf(
