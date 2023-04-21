@@ -4,7 +4,7 @@ Contributors: thingsym
 Link: https://github.com/thingsym/cycle-blocks
 Donate link: https://github.com/sponsors/thingsym
 Stable tag: 1.1.1
-Tested up to: 6.1.0
+Tested up to: 6.2.0
 Requires at least: 6.0.0
 Requires PHP: 7.2
 License: GPLv2 or later
