@@ -3,7 +3,7 @@
 Contributors: thingsym
 Link: https://github.com/thingsym/cycle-blocks
 Donate link: https://github.com/sponsors/thingsym
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Tested up to: 6.2.0
 Requires at least: 6.0.0
 Requires PHP: 7.2
@@ -92,6 +92,13 @@ For operation compatibility between PHP version and WordPress version, see below
 4. Have fun!
 
 == Changelog ==
+
+= 1.1.2 - 2023.04.21 =
+* tested up to 6.2.0
+* fix jest config
+* update npm dependencies
+* add npm scripts
+* fix Undefined variable $post
 
 = 1.1.1 - 2022.12.08 =
 * fix test case

@@ -125,6 +125,14 @@ For operation compatibility between PHP version and WordPress version, see below
 
 ## Changelog
 
+### [1.1.2] - 2023.04.21
+
+* tested up to 6.2.0
+* fix jest config
+* update npm dependencies
+* add npm scripts
+* fix Undefined variable $post
+
 ### [1.1.1] - 2022.12.08
 
 * fix test case
