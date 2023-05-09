@@ -134,7 +134,7 @@
     "sass:blocks:style:minify": "sass src/scss/blocks.scss dist/css/blocks.min.css --style expanded --no-source-map && postcss --use autoprefixer --use cssnano --no-map -r dist/css/blocks.min.css",
     "sass:block-editor:style": "sass src/scss/block-editor-style.scss dist/css/block-editor-style.css --style expanded --no-source-map && postcss --use autoprefixer --no-map -r dist/css/block-editor-style.css",
     "sass:block-editor:style:minify": "sass src/scss/block-editor-style.scss dist/css/block-editor-style.min.css --style expanded --no-source-map && postcss --use autoprefixer --use cssnano --no-map -r dist/css/block-editor-style.min.css",
-    "build:js": "wp-scripts build src/js/blocks --output-path=dist/js",
+    "build:js": "wp-scripts build src/js/blocks --output-path=dist/js && rimraf dist/js/blocks",
     "build:css": "run-s sass:**",
     "build:i18n": "run-s msgfmt:* po2json:*",
     "build:php": "cpy '**/*.php' '!**/tests/phpunit/*.php' '../../dist/blocks/' --cwd='src/blocks/' --parents",
