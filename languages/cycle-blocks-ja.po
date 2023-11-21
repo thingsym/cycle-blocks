@@ -1,14 +1,12 @@
-# Copyright (C) 2021 thingsym
-# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cycle Blocks 1.1.2\n"
+"Project-Id-Version: Cycle Blocks 1.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cycle-blocks\n"
-"POT-Creation-Date: 2022-09-29T11:00:00+00:00\n"
+"POT-Creation-Date: 2023-11-20T08:22:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +26,8 @@ msgstr "https://github.com/thingsym/cycle-blocks"
 msgid ""
 "Cycle Blocks plugin is a collection of block for block themes (Full Site "
 "Editing)."
-msgstr "Cycle Blocks plugin is a collection of block for block themes (Full Site "
+msgstr ""
+"Cycle Blocks plugin is a collection of block for block themes (Full Site "
 "Editing)."
 
 #. Author of the plugin
@@ -43,7 +42,7 @@ msgstr "https://www.thingslabo.com/"
 msgid "Become a sponsor"
 msgstr "スポンサーになる"
 
-#: src/blocks/profile/class-profile.php:106 src/blocks/profile/edit.js:448
+#: src/blocks/profile/class-profile.php:110 src/blocks/profile/edit.js:452
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
@@ -51,43 +50,47 @@ msgstr "(タイトルなし)"
 msgid "Page"
 msgstr "ページ"
 
-#: src/blocks/sitemap/class-sitemap.php:82
+#: src/blocks/sitemap/class-sitemap.php:86
+msgid "<time class=\"post-date\" datetime=\"%1$s\">%2$s</time> "
+msgstr ""
+
+#: src/blocks/sitemap/class-sitemap.php:93
 msgid "Blog"
 msgstr "ブログ"
 
-#: src/blocks/sitemap/class-sitemap.php:95
+#: src/blocks/sitemap/class-sitemap.php:106
 msgid "Category"
 msgstr "カテゴリ"
 
-#: src/blocks/sitemap/class-sitemap.php:108
+#: src/blocks/sitemap/class-sitemap.php:119
 msgid "Author"
 msgstr "投稿者"
 
-#: src/blocks/fontawesome-icons/edit.js:83
+#: src/blocks/fontawesome-icons/edit.js:86
 msgid "Icon settings"
 msgstr "アイコンの設定"
 
-#: src/blocks/fontawesome-icons/edit.js:87
+#: src/blocks/fontawesome-icons/edit.js:90
 msgid "Enable inline block"
 msgstr "インラインブロックにする"
 
-#: src/blocks/fontawesome-icons/edit.js:98
+#: src/blocks/fontawesome-icons/edit.js:101
 msgid "Icon Size"
 msgstr "アイコンのサイズ"
 
-#: src/blocks/fontawesome-icons/edit.js:106
+#: src/blocks/fontawesome-icons/edit.js:109
 msgid "Icons"
 msgstr "アイコン一覧"
 
-#: src/blocks/fontawesome-icons/edit.js:118
+#: src/blocks/fontawesome-icons/edit.js:121
 msgid "Color Settings"
 msgstr "色の設定"
 
-#: src/blocks/fontawesome-icons/edit.js:124
+#: src/blocks/fontawesome-icons/edit.js:127
 msgid "Icon Color"
 msgstr "アイコンカラー"
 
-#: src/blocks/fontawesome-icons/edit.js:129
+#: src/blocks/fontawesome-icons/edit.js:132
 msgid "Background Color"
 msgstr "背景画像"
 
@@ -135,43 +138,43 @@ msgstr "昇順 (過去から、1->9 または A->Z)"
 msgid "DESC"
 msgstr "降順 (最新から、9->1 または Z->A)"
 
-#: src/blocks/page-list/edit.js:108
+#: src/blocks/page-list/edit.js:112
 msgid "Settings"
 msgstr "設定"
 
-#: src/blocks/page-list/edit.js:110
+#: src/blocks/page-list/edit.js:114
 msgid "Post ID"
 msgstr "投稿ID"
 
-#: src/blocks/page-list/edit.js:119
+#: src/blocks/page-list/edit.js:123
 msgid "Layout"
 msgstr "レイアウト"
 
-#: src/blocks/page-list/edit.js:129
+#: src/blocks/page-list/edit.js:133
 msgid "Sort Column"
 msgstr "カラムをソート"
 
-#: src/blocks/page-list/edit.js:139
+#: src/blocks/page-list/edit.js:143
 msgid "Sort Order"
 msgstr "順序をソート"
 
-#: src/blocks/page-list/edit.js:150
+#: src/blocks/page-list/edit.js:154
 msgid "Display Ancestor"
 msgstr "親ページの表示"
 
-#: src/blocks/page-list/edit.js:161
+#: src/blocks/page-list/edit.js:165
 msgid "Depth"
 msgstr "深さ"
 
-#: src/blocks/page-list/edit.js:174 src/blocks/profile/edit.js:263
+#: src/blocks/page-list/edit.js:178 src/blocks/profile/edit.js:265
 msgid "Columns"
 msgstr "カラム"
 
-#: src/blocks/page-list/edit.js:186 src/blocks/profile/edit.js:282
+#: src/blocks/page-list/edit.js:190 src/blocks/profile/edit.js:284
 msgid "Display featured image"
 msgstr "画像の表示"
 
-#: src/blocks/page-list/edit.js:215
+#: src/blocks/page-list/edit.js:219
 msgid ""
 "Not Found pages. If the Post ID is blank or not a post/page, it cannot be "
 "viewed in the editor."
@@ -185,85 +188,85 @@ msgstr "リスト表示"
 msgid "Grid view"
 msgstr "グリッド表示"
 
-#: src/blocks/profile/edit.js:198
+#: src/blocks/profile/edit.js:200
 msgid "Profile Settings"
 msgstr "プロフィールの設定"
 
-#: src/blocks/profile/edit.js:209
+#: src/blocks/profile/edit.js:211
 msgid "Show title"
 msgstr "タイトルを表示"
 
-#: src/blocks/profile/edit.js:216
+#: src/blocks/profile/edit.js:218
 msgid "Show avatar"
 msgstr "アバター画像を表示"
 
-#: src/blocks/profile/edit.js:224
+#: src/blocks/profile/edit.js:226
 msgid "Avatar size"
 msgstr "アバター画像サイズ"
 
-#: src/blocks/profile/edit.js:235
+#: src/blocks/profile/edit.js:237
 msgid "Show bio"
 msgstr "プロフィール情報を表示"
 
-#: src/blocks/profile/edit.js:242
+#: src/blocks/profile/edit.js:244
 msgid "Show recent posts"
 msgstr "最新の投稿を表示"
 
-#: src/blocks/profile/edit.js:251
+#: src/blocks/profile/edit.js:253
 msgid "Number of Posts"
 msgstr "投稿数"
 
-#: src/blocks/profile/edit.js:312
+#: src/blocks/profile/edit.js:314
 msgid ""
 "Not Found authorId. If the User is blank or not a post/page, it cannot be "
 "viewed in the editor."
 msgstr "authorId がありません。ユーザがブランク、または投稿/ページがない場合、エディターに表示できません。"
 
-#: src/blocks/profile/edit.js:334
+#: src/blocks/profile/edit.js:336
 msgid "Title"
 msgstr "タイトル"
 
-#: src/blocks/profile/edit.js:335 src/blocks/profile/edit.js:390
+#: src/blocks/profile/edit.js:337 src/blocks/profile/edit.js:392
 msgid "Write title…"
 msgstr "タイトルを書く"
 
-#: src/blocks/profile/edit.js:362
+#: src/blocks/profile/edit.js:364
 msgid "Post author byline text"
 msgstr "投稿者の署名欄"
 
-#: src/blocks/profile/edit.js:363
+#: src/blocks/profile/edit.js:365
 msgid "Write byline…"
 msgstr "署名欄を書く"
 
-#: src/blocks/profile/edit.js:373
+#: src/blocks/profile/edit.js:375
 msgid "Post Author"
 msgstr "投稿者"
 
-#: src/blocks/profile/edit.js:389
+#: src/blocks/profile/edit.js:391
 msgid "Author title"
 msgstr "投稿者のタイトル"
 
-#: src/blocks/sitemap/edit.js:26
+#: src/blocks/sitemap/edit.js:30
 msgid "Sitemap settings"
 msgstr "サイトマップの設定"
 
-#: src/blocks/sitemap/edit.js:28
+#: src/blocks/sitemap/edit.js:32
 msgid "Display Page"
 msgstr "ページの表示"
 
-#: src/blocks/sitemap/edit.js:37
+#: src/blocks/sitemap/edit.js:41
 msgid "Display Post"
 msgstr "投稿の表示"
 
-#: src/blocks/sitemap/edit.js:46
+#: src/blocks/sitemap/edit.js:50
 msgid "Display Category"
 msgstr "カテゴリの表示"
 
-#: src/blocks/sitemap/edit.js:55
+#: src/blocks/sitemap/edit.js:59
 msgid "Display Author"
 msgstr "投稿者の表示"
 
-#: src/blocks/sitemap/edit.js:77
+#: src/blocks/sitemap/edit.js:81
 msgid "Empty"
 msgstr "空です。"
 
@@ -284,11 +287,11 @@ msgstr "アイキャッチ画像の設定"
 msgid "Remove image"
 msgstr "アイキャッチ画像を削除"
 
-#: src/helper/user-control/index.js:37
+#: src/helper/user-control/index.js:40
 msgid "User"
 msgstr "ユーザ"
 
-#: src/helper/user-control/index.js:38
+#: src/helper/user-control/index.js:41
 msgid ""
 "Select the user to display, if it is blank it will use the post/page author."
 msgstr "表示したいユーザを選んでください。空白の場合は、その投稿またはページの投稿者が選択されます。"

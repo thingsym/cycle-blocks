@@ -125,6 +125,15 @@ For operation compatibility between PHP version and WordPress version, see below
 
 ## Changelog
 
+### [1.1.3] - 2023.11.21
+
+* tested up to 6.4.1
+* fix npm scripts
+* update npm dependencies for update-browserslist-db
+* fix phpunit.xml config
+* phpunit-polyfills bump up
+* remove dist/js/blocks
+
 ### [1.1.2] - 2023.04.21
 
 * tested up to 6.2.0

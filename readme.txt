@@ -3,7 +3,7 @@
 Contributors: thingsym
 Link: https://github.com/thingsym/cycle-blocks
 Donate link: https://github.com/sponsors/thingsym
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 Tested up to: 6.4.1
 Requires at least: 6.0.0
 Requires PHP: 7.2
@@ -92,6 +92,14 @@ For operation compatibility between PHP version and WordPress version, see below
 4. Have fun!
 
 == Changelog ==
+
+= 1.1.3 - 2023.11.21 =
+* tested up to 6.4.1
+* fix npm scripts
+* update npm dependencies for update-browserslist-db
+* fix phpunit.xml config
+* phpunit-polyfills bump up
+* remove dist/js/blocks
 
 = 1.1.2 - 2023.04.21 =
 * tested up to 6.2.0
