@@ -128,7 +128,7 @@
     "msgfmt:ja": "msgfmt languages/${npm_package_name}-ja.po -o languages/${npm_package_name}-ja.mo",
     "makemo:ja": "wp i18n make-mo ./languages/${npm_package_name}-ja.po ./languages",
     "msgfmt": "run-p msgfmt:*",
-    "po2json:setup:fixed:package.json": "cp /var/www/html/wp-content/plugins/cycle-blocks/node_modules/po2json/package.json /var/www/html/wp-content/plugins/cycle-blocks/node_modules/po2json/package.json.org && sed s@./lib/po2json@index.js@ /var/www/html/wp-content/plugins/cycle-blocks/node_modules/po2json/package.json > /var/www/html/wp-content/plugins/cycle-blocks/node_modules/po2json/package.json.new && mv -f /var/www/html/wp-content/plugins/cycle-blocks/node_modules/po2json/package.json.new /var/www/html/wp-content/plugins/cycle-blocks/node_modules/po2json/package.json",
+    "po2json:setup:fixed:package.json": "cp ./node_modules/po2json/package.json ./node_modules/po2json/package.json.org && sed s@./lib/po2json@index.js@ ./node_modules/po2json/package.json > ./node_modules/po2json/package.json.new && mv -f ./node_modules/po2json/package.json.new ./node_modules/po2json/package.json",
     "po2json:ja": "po2json languages/${npm_package_name}-ja.po languages/${npm_package_name}-ja-${npm_package_name}-editor-script.json -f jed",
     "po2json": "run-s po2json:setup:fixed:package.json po2json:*",
     "sass:blocks:style": "sass src/scss/blocks.scss dist/css/blocks.css --style expanded --no-source-map && postcss --use autoprefixer --no-map -r dist/css/blocks.css",
