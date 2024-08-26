@@ -144,11 +144,8 @@ class Cycle_Blocks {
 			'cycle-blocks-editor-script',
 			plugins_url( 'dist/js/blocks.js', CYCLE_BLOCKS ),
 			$this->asset_file['dependencies'],
-			$this->asset_file['version'],
-			true
+			$this->asset_file['version']
 		);
-
-		wp_enqueue_script( 'wp-element' );
 	}
 
 	public function register_block_editor_styles() {
