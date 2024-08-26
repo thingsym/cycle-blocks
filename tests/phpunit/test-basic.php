@@ -10,6 +10,8 @@
  */
 class Test_Cycle_Blocks extends WP_UnitTestCase {
 
+	public $cycle_blocks;
+
 	public function setUp(): void {
 		parent::setUp();
 		$this->cycle_blocks = new \Cycle_Blocks\Cycle_Blocks();

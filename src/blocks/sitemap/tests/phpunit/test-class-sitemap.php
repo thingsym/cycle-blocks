@@ -7,6 +7,8 @@
 
 class Test_Class_Sitemap extends WP_UnitTestCase {
 
+	public $sitemap;
+
 	public function setUp(): void {
 		parent::setUp();
 		$this->sitemap = new \Cycle_Blocks\Blocks\Sitemap();
