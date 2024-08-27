@@ -110,7 +110,7 @@ For operation compatibility between PHP version and WordPress version, see below
 
 = 1.1.1 - 2022.12.08 =
 * fix test case
-* imporve code with phpcs
+* improve code with phpcs
 * fix block wrapper
 * change variable name
 * add classname to block wrapper
@@ -129,7 +129,7 @@ For operation compatibility between PHP version and WordPress version, see below
 * update composer dependency
 * fix phpcs composer scripts
 * add PHP CodeSniffer to ci
-* imporve code with phpcs
+* improve code with phpcs
 * fix conditional expression
 * fix scss
 * add who prop to UserControl
