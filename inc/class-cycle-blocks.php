@@ -144,7 +144,8 @@ class Cycle_Blocks {
 			'cycle-blocks-editor-script',
 			plugins_url( 'dist/js/blocks.js', CYCLE_BLOCKS ),
 			$this->asset_file['dependencies'],
-			$this->asset_file['version']
+			$this->asset_file['version'],
+			false
 		);
 	}
 
