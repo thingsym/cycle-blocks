@@ -125,6 +125,22 @@ For operation compatibility between PHP version and WordPress version, see below
 
 ## Changelog
 
+### [1.1.4] - 2024.08.27
+
+* tested up to 6.6.1
+* improve code with phpcs
+* update github workflows
+* update icon-settings
+* update composer dependencies
+* update npm dependencies
+* add Disabled
+* add aria-label
+* fix import
+* fix wp_register_script dependencies
+* remove test case
+* fix Deprecated: Creation of dynamic property for php8.2
+* bump up version cpy-cli and fix npm scripts
+
 ### [1.1.3] - 2023.11.21
 
 * tested up to 6.4.1
