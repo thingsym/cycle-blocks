@@ -22,6 +22,7 @@ import {
 	ToggleControl,
 	RangeControl,
 	ToolbarGroup,
+	Disabled,
 	Placeholder,
 } from '@wordpress/components';
 import { dateI18n, format, getSettings } from '@wordpress/date';
@@ -396,67 +397,69 @@ export default function profileEdit( {
 								}
 							/>
 						) }
-							<ul className={ post_class }>
-								{ latestPosts.map( ( post, i ) => {
-									const titleTrimmed = invoke( post, [
-										'title',
-										'rendered',
-										'trim',
-									] );
+							<Disabled>
+								<ul className={ post_class }>
+									{ latestPosts.map( ( post, i ) => {
+										const titleTrimmed = invoke( post, [
+											'title',
+											'rendered',
+											'trim',
+										] );
 
-									const {
-										featuredImageInfo: {
-											url: imageSourceUrl,
-											alt: featuredImageAlt,
-										} = {},
-									} = post;
+										const {
+											featuredImageInfo: {
+												url: imageSourceUrl,
+												alt: featuredImageAlt,
+											} = {},
+										} = post;
 
-									const renderFeaturedImage =
-										displayFeaturedImage && ( imageSourceUrl || mediaSizes );
+										const renderFeaturedImage =
+											displayFeaturedImage && ( imageSourceUrl || mediaSizes );
 
-									const image_size = postLayout === 'grid' ? 'medium' : 'thumbnail';
+										const image_size = postLayout === 'grid' ? 'medium' : 'thumbnail';
 
-									const featuredImage = renderFeaturedImage && (
-										<img
-											src={
-												imageSourceUrl ? imageSourceUrl
-												: mediaSizes[ image_size ] ? mediaSizes[ image_size ].source_url
-												: mediaSizes[ 'full' ].source_url ? mediaSizes[ 'full' ].source_url
-												: ''
-											}
-											alt={ featuredImageAlt }
-											className={ `attachment-${ image_size } wp-post-image` }
-										/>
-									);
+										const featuredImage = renderFeaturedImage && (
+											<img
+												src={
+													imageSourceUrl ? imageSourceUrl
+													: mediaSizes[ image_size ] ? mediaSizes[ image_size ].source_url
+													: mediaSizes[ 'full' ].source_url ? mediaSizes[ 'full' ].source_url
+													: ''
+												}
+												alt={ featuredImageAlt }
+												className={ `attachment-${ image_size } wp-post-image` }
+											/>
+										);
 
-									return (
-										<li key={ i }>
-											{ displayFeaturedImage && featuredImage && (
-												<div className="cycle-blocks-profile_recent-post__featured-image">
-													<a href={ post.link } rel="noreferrer noopener">{ featuredImage }</a>
-												</div>
-											) }
-											<div className="cycle-blocks-profile_recent-post__content">
-												{ post.date_gmt && (
-													<time
-														dateTime={ format( 'c', post.date_gmt ) }
-														className="cycle-blocks-profile__post-date"
-													>
-														{ dateI18n( dateFormat, post.date_gmt ) }
-													</time>
+										return (
+											<li key={ i }>
+												{ displayFeaturedImage && featuredImage && (
+													<div className="cycle-blocks-profile_recent-post__featured-image">
+														<a href={ post.link } rel="noreferrer noopener">{ featuredImage }</a>
+													</div>
 												) }
-												<a href={ post.link } rel="noreferrer noopener">
-													{ titleTrimmed ? (
-														<RawHTML>{ titleTrimmed }</RawHTML>
-													) : (
-														__( '(no title)', 'cycle-blocks' )
+												<div className="cycle-blocks-profile_recent-post__content">
+													{ post.date_gmt && (
+														<time
+															dateTime={ format( 'c', post.date_gmt ) }
+															className="cycle-blocks-profile__post-date"
+														>
+															{ dateI18n( dateFormat, post.date_gmt ) }
+														</time>
 													) }
-												</a>
-											</div>
-										</li>
-									);
-							} ) }
-						</ul>
+													<a href={ post.link } rel="noreferrer noopener">
+														{ titleTrimmed ? (
+															<RawHTML>{ titleTrimmed }</RawHTML>
+														) : (
+															__( '(no title)', 'cycle-blocks' )
+														) }
+													</a>
+												</div>
+											</li>
+										);
+								} ) }
+							</ul>
+						</Disabled>
 					</div>
 				) }
 			</div>
